@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_profile">
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.kroasiden20.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_events"
+        android:name="com.example.kroasiden20.ui.events.EventsFragment"
+        android:label="@string/menu_events"
+        tools:layout="@layout/fragment_events" />
+
+    <fragment
+        android:id="@+id/nav_volunteer"
+        android:name="com.example.kroasiden20.ui.volunteer.VolunteerFragment"
+        android:label="@string/menu_volunteers"
+        tools:layout="@layout/fragment_volunteers" />
+
+    <fragment
+        android:id="@+id/nav_manage"
+        android:name="com.example.kroasiden20.ui.manage.ManageFragment"
+        android:label="@string/menu_manage_event"
+        tools:layout="@layout/fragment_manage" />
+
+    <fragment
+        android:id="@+id/nav_unitlist"
+        android:name="com.example.kroasiden20.ui.unitlist.UnitlistFragment"
+        android:label="@string/menu_unitlist"
+        tools:layout="@layout/fragment_unitlist" />
+
+    <fragment
+        android:id="@+id/nav_logs"
+        android:name="com.example.kroasiden20.ui.eventlogs.EventlogsFragment"
+        android:label="@string/menu_event_logs"
+        tools:layout="@layout/fragment_logs" />
+</navigation>

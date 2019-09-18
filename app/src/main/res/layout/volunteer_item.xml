@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:background="#CECECE">
+
+        <TextView
+            android:id="@+id/volunteerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Name Nameson"
+            android:paddingHorizontal="10dp"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/crewImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/volunteerName"
+            android:src="@drawable/man_blue" />
+
+        <ImageView
+            android:id="@+id/secImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/crewImg"
+            android:src="@drawable/man_red" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#3F51B5"
+            android:text="Edit"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/userRole1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerName"
+            android:paddingHorizontal="10dp"
+            android:text="Crew Manager"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/userRole2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerName"
+            android:layout_toEndOf="@id/userRole1"
+            android:paddingHorizontal="10dp"
+            android:text="Security Manager"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/volunteerEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userRole1"
+            android:text="Email: test@email.no"
+            android:paddingHorizontal="10dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/volunteerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userRole1"
+            android:layout_toEndOf="@id/volunteerEmail"
+            android:text="Tlf: 66885544"
+            android:paddingHorizontal="10dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/lastVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerEmail"
+            android:text="Last volunteered: 23 January 2019"
+            android:paddingHorizontal="10dp"
+            android:textSize="8sp" />
+    </RelativeLayout>
