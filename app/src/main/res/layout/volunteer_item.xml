@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp"
-        android:background="#CECECE">
+       >
 
         <TextView
             android:id="@+id/volunteerName"
@@ -26,25 +27,28 @@
             android:src="@drawable/man_blue" />
 
         <ImageView
-            android:id="@+id/secImg"
+            android:id="@+id/barImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/crewImg"
-            android:src="@drawable/man_red" />
+            android:src="@drawable/man_black" />
 
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
+        <ImageView
+            android:id="@+id/secImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="#3F51B5"
-            android:text="Edit"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:textSize="12sp"/>
+            android:layout_toEndOf="@id/barImg"
+            android:src="@drawable/man_red" />
+
+        <ImageView
+            android:id="@+id/techImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/secImg"
+            android:src="@drawable/man_blue" />
 
         <TextView
-            android:id="@+id/userRole1"
+            android:id="@+id/userRole"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/volunteerName"
@@ -52,21 +56,13 @@
             android:text="Crew Manager"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/userRole2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/volunteerName"
-            android:layout_toEndOf="@id/userRole1"
-            android:paddingHorizontal="10dp"
-            android:text="Security Manager"
-            android:textSize="16sp" />
+
 
         <TextView
             android:id="@+id/volunteerEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userRole1"
+            android:layout_below="@id/userRole"
             android:text="Email: test@email.no"
             android:paddingHorizontal="10dp"
             android:textSize="12sp" />
@@ -75,7 +71,7 @@
             android:id="@+id/volunteerPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userRole1"
+            android:layout_below="@id/userRole"
             android:layout_toEndOf="@id/volunteerEmail"
             android:text="Tlf: 66885544"
             android:paddingHorizontal="10dp"
@@ -90,3 +86,4 @@
             android:paddingHorizontal="10dp"
             android:textSize="8sp" />
     </RelativeLayout>
+</androidx.cardview.widget.CardView>

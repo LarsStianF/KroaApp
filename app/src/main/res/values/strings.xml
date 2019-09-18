@@ -72,6 +72,17 @@
 
     </string-array>
 
+    <string-array name="volunteer_roles">
+        <item>Crew Manager</item>
+        <item>Security Manager</item>
+        <item>Volunteer</item>
+        <item>Volunteer</item>
+        <item>Bar Manager</item>
+        <item>Technical Manager</item>
+        <item>Volunteer Manager</item>
+
+    </string-array>
+
     <string-array name="volunteer_emails">
         <item>nameson@kroa.no</item>
         <item>Bertelson@kroa.no</item>
@@ -93,6 +104,18 @@
         <item>29398020</item>
 
     </string-array>
+
+    <string-array name="volunteer_lastvolunteered">
+        <item>21st January</item>
+        <item>15th November</item>
+        <item>Onsdag</item>
+        <item>11th September</item>
+        <item>6th September</item>
+        <item>29th February</item>
+        <item>Tirsdag i Juleuka</item>
+
+    </string-array>
+
 
 
     <string name="welcome_username">Welcome, username</string>
