@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:layout_margin="8dp"
     >
 <RelativeLayout
     android:layout_width="match_parent"
@@ -14,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-
         android:id="@+id/eventImage">
     </ImageView>
     <TextView
@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/title"
         android:layout_alignTop="@+id/eventImage"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
