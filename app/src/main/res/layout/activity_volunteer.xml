@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        >
+
+        <TextView
+            android:id="@+id/volunteerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Name Nameson"
+            android:paddingHorizontal="10dp"
+            android:textSize="24sp" />
+
+
+
+        <TextView
+            android:id="@+id/userRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="10dp"
+            android:text="Crew Manager"
+            android:textSize="16sp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/volunteerIconRow"
+        android:layout_below="@id/userRole"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/crewImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/man_blue" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crew"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/barImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/man_black" />
+        <TextView
+
+            android:gravity="center"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bar"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:id="@+id/secImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/man_red" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Security"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/techImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/man_blue" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technical"/>
+    </LinearLayout>
+    </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/volunteerEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerIconRow"
+            android:text="Email: test@email.no"
+            android:paddingHorizontal="10dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/volunteerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerEmail"
+            android:text="Tlf: 66885544"
+            android:paddingHorizontal="10dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lastVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/volunteerPhone"
+            android:text="Last volunteered: 23 January 2019"
+            android:paddingHorizontal="10dp"
+            android:textSize="12sp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE VOLUNTEER"
+        android:layout_below="@id/lastVol"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Commit change"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/lastVol"/>
+    </RelativeLayout>

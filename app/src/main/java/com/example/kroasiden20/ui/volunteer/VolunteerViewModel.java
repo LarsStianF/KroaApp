@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 public class VolunteerViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
 
     public VolunteerViewModel() {
 
