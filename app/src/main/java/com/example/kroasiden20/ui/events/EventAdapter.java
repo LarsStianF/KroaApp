@@ -75,7 +75,7 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>  {
         // Member Variables for the TextViews
         private TextView eTitleText;
         private TextView eInfoText;
-        private ImageView eSportsImage;
+        private ImageView eEventImage;
 
 
         ViewHolder(View itemView) {
@@ -84,15 +84,15 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>  {
             // Initialize the views.
             eTitleText = itemView.findViewById(R.id.title);
             eInfoText = itemView.findViewById(R.id.subTitle);
-            eSportsImage = itemView.findViewById(R.id.eventImage);
+            eEventImage = itemView.findViewById(R.id.eventImage);
 
         }
 
-        void bindTo(Event currentSport){
+        void bindTo(Event currentEvent){
             // Populate the textviews with data.
-            eTitleText.setText(currentSport.getTitle());
-            eInfoText.setText(currentSport.getInfo());
-            Glide.with(eContext).load(currentSport.getImageResource()).into(eSportsImage);
+            eTitleText.setText(currentEvent.getTitle());
+            eInfoText.setText(currentEvent.getInfo());
+            Glide.with(eContext).load(currentEvent.getImageResource()).into(eEventImage);
         }
     }
 }
