@@ -13,14 +13,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class ProfileActivity extends AppCompatActivity {
+public class NavActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
