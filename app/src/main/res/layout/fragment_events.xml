@@ -9,16 +9,12 @@
     android:paddingBottom="@dimen/event_vertical_padding"
     android:paddingTop="@dimen/event_vertical_padding"
     android:paddingStart="@dimen/event_horizontal_padding"
-    android:paddingEnd="@dimen/event_horizontal_padding"
-
-
-    >
+    android:paddingEnd="@dimen/event_horizontal_padding">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-       />
+        android:scrollbars="vertical"/>
 
 </RelativeLayout>
