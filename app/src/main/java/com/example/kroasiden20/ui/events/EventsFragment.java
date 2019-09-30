@@ -1,9 +1,11 @@
 package com.example.kroasiden20.ui.events;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +16,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kroasiden20.EventActivity;
 import com.example.kroasiden20.R;
 import com.example.kroasiden20.VolleyAdapter;
 
@@ -31,7 +33,9 @@ import java.util.ArrayList;
 public class EventsFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
 
     private static final String DEBUG_TAG = "EventFragmentEvent";
-    public final static String VARE_INTENT_ID = "Help";
+    public final static String EVENT_INTENT_ID =
+            "com.example.kroasiden20.ui.events.EventsFragment.VIS_EVENT";
+    public final static int REQUEST_CODE_VIS_VARE = 0;
     public final static String ENDPOINT = "https://itfag.usn.no/~216714/api.php";
 
     private VolleyAdapter restDbAdapter;
@@ -42,6 +46,8 @@ public class EventsFragment extends Fragment implements Response.Listener<String
     private EventsViewModel eventsViewModel;
 
     Event valgtEvent;
+
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -112,5 +118,19 @@ public class EventsFragment extends Fragment implements Response.Listener<String
         return (networkInfo != null && networkInfo.isConnected());
     }
 
+    public void visEvent(String eventID) {
+        Intent startIntent = new Intent(this.getActivity(), EventActivity.class);
+        startIntent.putExtra(EventsFragment.EVENT_INTENT_ID, eventID);
+        startActivityForResult(startIntent, EventsFragment.REQUEST_CODE_VIS_VARE);
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data ) {
+        if (requestCode == REQUEST_CODE_VIS_VARE && resultCode == Activity.RESULT_OK){
+            Log.d("EventsFragment: ", "onActivityResult()");
+            lesAlleEventer();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
