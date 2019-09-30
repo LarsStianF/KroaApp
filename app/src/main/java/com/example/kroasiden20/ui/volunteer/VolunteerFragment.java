@@ -1,11 +1,15 @@
 package com.example.kroasiden20.ui.volunteer;
 
+import android.app.Activity;
 import android.content.res.TypedArray;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -16,15 +20,27 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kroasiden20.R;
 
 
+
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
-public class VolunteerFragment extends Fragment {
+public class VolunteerFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
+    public final static String ENDPOINT = "https://itfag.usn.no/~216714/api.php";
 
     private RecyclerView vRecyclerView;
     private ArrayList<Volunteer> vVolunteerData;
+    private ArrayList<Volunteer> volArrayList = new ArrayList<Volunteer>();
+
     private VolunteerAdapter vAdapter;
 
     private VolunteerViewModel volunteerViewModel;
@@ -54,34 +70,50 @@ public class VolunteerFragment extends Fragment {
         return root;
     }
 
-    private void initializeData() {
-        // Get the resources from the XML file.
-        String[] volNameList = getResources()
-                .getStringArray(R.array.volunteer_names);
-        String[] volRoleList = getResources()
-                .getStringArray(R.array.volunteer_roles);
-        String[] volEmailList = getResources()
-                .getStringArray(R.array.volunteer_emails);
-        String[] volPhoneList = getResources()
-                .getStringArray(R.array.volunteer_phones);
-        String[] volLastVolList = getResources()
-                .getStringArray(R.array.volunteer_lastvolunteered);
-
-
-
-        // Clear the existing data (to avoid duplication).
-        vVolunteerData.clear();
-
-        // Create the ArrayList of Sports objects with titles and
-        // information about each sport.
-        for(int i=0;i<volNameList.length;i++){
-            vVolunteerData.add(new Volunteer(volNameList[i],volRoleList[i], "Email: " + volEmailList[i],"Tlf: " + volPhoneList[i], "Last Volunteered: " + volLastVolList[i]
-                    ));
+    public void initializeData() {
+        String volunteerList_URL = ENDPOINT + "/volunteer?order=ID,asc&transform=1";
+        Toast.makeText(this.getActivity(), volunteerList_URL, Toast.LENGTH_LONG).show();
+        System.out.println(volunteerList_URL);
+        if(isOnline()) {
+            System.out.println("STATUS: OPERATIONAL");
+            RequestQueue queue = Volley.newRequestQueue(this.getActivity());
+            StringRequest stringRequest =
+                    new StringRequest(Request.Method.GET, volunteerList_URL, this, this);
+            queue.add(stringRequest);
+            System.out.println(stringRequest);
+        } else {
+            Toast.makeText(this.getActivity(), "ERROR: NO CONNECTION. STATUS: INOPERATIVE", Toast.LENGTH_SHORT).show();
         }
-
-
-        // Notify the adapter of the change.
-        vAdapter.notifyDataSetChanged();
-
     }
+
+    @Override
+    public void onResponse(String response) {
+        try {
+            volArrayList = Volunteer.populateVolunteerList(response);
+            populateVolunteerListView(volArrayList);
+        }
+        catch (JSONException e) {
+            Toast.makeText(this.getActivity(), "Ugyldige JSON-data.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+        Toast.makeText(this.getActivity(), "Volley feilet!", Toast.LENGTH_LONG).show();
+    }
+
+    public void populateVolunteerListView(ArrayList<Volunteer> nyEventListe) {
+        vAdapter = new VolunteerAdapter(this.getActivity(), volArrayList);
+        vRecyclerView.setAdapter(vAdapter);
+        vRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) this.getActivity().getSystemService(Activity.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+
+
 }
