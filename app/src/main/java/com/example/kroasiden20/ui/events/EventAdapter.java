@@ -2,12 +2,18 @@ package com.example.kroasiden20.ui.events;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.kroasiden20.EventActivity;
+import com.example.kroasiden20.NavActivity;
 import com.example.kroasiden20.R;
 import java.util.ArrayList;
 
@@ -91,12 +97,18 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
         }
         @Override
         public void onClick(View view) {
-            String evtID = evtIdView.getText().toString();
-            if (evtID != null) ;
-            {
 
-            }
-        }
+            Event currentEvent = eventListen.get(getAdapterPosition());
+            Intent detailIntent = new Intent(parent, EventActivity.class);
+            detailIntent.putExtra("Name", currentEvent.getEvtName());
+            detailIntent.putExtra("Date", currentEvent.getEvtDate());
+            detailIntent.putExtra("Start", currentEvent.getEvtStart());
+            detailIntent.putExtra("End", currentEvent.getEvtEnd());
+            detailIntent.putExtra("Txt", currentEvent.getEvtTxt());
+
+            detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            ctx.startActivity(detailIntent);
+        } // End of onClick()
 
     }
 }

@@ -116,4 +116,43 @@ public class Event {
         return nyEvent;
     }
 
+    public String getEvtId() {
+        return evtId;
+    }
+
+    public String getEvtName() {
+        return evtName;
+    }
+
+    public String getEvtDate() {
+        return evtDate;
+    }
+
+    public String getEvtStart() {
+        return evtStart;
+    }
+
+    public String getEvtEnd() {
+        return evtEnd;
+    }
+
+    public String getEvtTxt() {
+        return evtTxt;
+    }
+
+    public String getEvtSec() {
+        return evtSec;
+    }
+
+    public String getEvtBar() {
+        return evtBar;
+    }
+
+    public String getEvtCrw() {
+        return evtCrw;
+    }
+
+    public String getEvtTch() {
+        return evtTch;
+    }
 }
