@@ -1,27 +1,48 @@
 package com.example.kroasiden20.ui.events;
 
-import android.content.res.TypedArray;
+import android.app.Activity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kroasiden20.R;
+import com.example.kroasiden20.VolleyAdapter;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class EventsFragment extends Fragment {
+public class EventsFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
 
-    private RecyclerView eRecyclerView;
-    private ArrayList<Event> eSportsData;
-    private EventAdapter eAdapter;
+    private static final String DEBUG_TAG = "EventFragmentEvent";
+    public final static String VARE_INTENT_ID = "Help";
+    public final static String ENDPOINT = "https://itfag.usn.no/~216714/api.php";
+
+    private VolleyAdapter restDbAdapter;
+    private RecyclerView evtRecyclerView;
+    private ArrayList<Event> evtArrayList = new ArrayList<Event>();
+    private EventAdapter evtAdapter;
 
     private EventsViewModel eventsViewModel;
+
+    Event valgtEvent;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,43 +52,65 @@ public class EventsFragment extends Fragment {
 
 
         // Initialize the RecyclerView.
-        eRecyclerView = root.findViewById(R.id.recyclerView);
+        evtRecyclerView = root.findViewById(R.id.recyclerView);
         // Set the Layout Manager.
-        eRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        evtRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         // Initialize the ArrayList that will contain the data.
-        eSportsData = new ArrayList<>();
+        evtArrayList = new ArrayList<>();
         // Initialize the adapter and set it to the RecyclerView.
-        eAdapter = new EventAdapter(this.getActivity(), eSportsData);
-        eRecyclerView.setAdapter(eAdapter);
-
+        evtAdapter = new EventAdapter(this.getActivity(), evtArrayList);
+        evtRecyclerView.setAdapter(evtAdapter);
+        restDbAdapter =new VolleyAdapter(root.getContext());
         // Get the data.
-        initializeData();
+        lesAlleEventer();
 
         return root;
     }
 
-    private void initializeData() {
-        // Get the resources from the XML file.
-        String[] eventList = getResources()
-                .getStringArray(R.array.event_titles);
-        String[] eventInfo = getResources()
-                .getStringArray(R.array.event_info);
-        TypedArray eventImageResources =
-                getResources().obtainTypedArray(R.array.events_images);
-
-        // Clear the existing data (to avoid duplication).
-        eSportsData.clear();
-
-        // Create the ArrayList of Sports objects with titles and
-        // information about each sport.
-        for(int i=0;i<eventList.length;i++){
-            eSportsData.add(new Event(eventList[i],eventInfo[i],
-                    eventImageResources.getResourceId(0,0)));
+    public void lesAlleEventer() {
+        String eventliste_URL = ENDPOINT + "/event?order=Date,asc&transform=1";
+        Toast.makeText(this.getActivity(), eventliste_URL, Toast.LENGTH_LONG).show();
+        System.out.println(eventliste_URL);
+        if(isOnline()) {
+            System.out.println("JEG ER ONLINE FOR FOAEN !!!");
+            RequestQueue queue = Volley.newRequestQueue(this.getActivity());
+            StringRequest stringRequest =
+                    new StringRequest(Request.Method.GET, eventliste_URL, this, this);
+            queue.add(stringRequest);
+            System.out.println(stringRequest);
+        } else {
+            Toast.makeText(this.getActivity(), "Ingen nettverkstilgang. Kan ikke laste varer.", Toast.LENGTH_SHORT).show();
         }
-
-
-        // Notify the adapter of the change.
-        eAdapter.notifyDataSetChanged();
-
     }
+
+    @Override
+    public void onResponse(String response) {
+        try {
+            evtArrayList = Event.lagEventListe(response);
+            oppdaterEventListView(evtArrayList);
+        }
+        catch (JSONException e) {
+            Toast.makeText(this.getActivity(), "Ugyldige JSON-data.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+        Toast.makeText(this.getActivity(), "Volley feilet!", Toast.LENGTH_LONG).show();
+    }
+
+    public void oppdaterEventListView(ArrayList<Event> nyEventListe) {
+        evtAdapter = new EventAdapter(this.getActivity(), evtArrayList);
+        evtRecyclerView.setAdapter(evtAdapter);
+        evtRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) this.getActivity().getSystemService(Activity.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+
+
 }

@@ -15,36 +15,78 @@
         android:layout_height="wrap_content"
         >
 
-        <ImageView
-            android:id="@+id/eventImage"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/evt_id"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"></ImageView>
+             />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/evt_name"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/eventImage"
+            android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:padding="8dp"
+            android:text="Kroa i Bø"
             android:textColor="@color/textColorPrimary"
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/subTitle"
+            android:id="@+id/evt_date"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:text="20.09.2019"
+            android:layout_below="@+id/evt_name"
+            android:textColor="@color/textColorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/evt_start_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/evt_date"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/evt_start"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="10dp"
+                android:text="23:00 -"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_end"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="10dp"
+                android:text=" 01:00"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/evt_text"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/evt_start_end"
             android:gravity="center"
             android:paddingEnd="30dp"
             android:paddingStart="30dp"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
-            android:text=""
+            android:text="Hei vi kjører fort, veldig fort"
             android:textColor="@color/textColorPrimary" />
 
         <LinearLayout
@@ -52,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/subTitle"
+            android:layout_below="@id/evt_text"
             android:backgroundTint="@color/textColorPrimary"
             android:gravity="center">
             <ImageView
@@ -105,42 +147,84 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/evt_sec_got"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2/10"
-                android:textColor="@color/textColorPrimary"
+                android:layout_marginStart="13dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5/10"
-                android:textColor="@color/textColorPrimary"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5/10"
+                android:layout_marginBottom="10dp"
+                android:text="2"
+                android:textColor="@color/textColorPrimary" />
 
-                android:textColor="@color/textColorPrimary"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="10dp"/>
             <TextView
+                android:id="@+id/evt_sec_need"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12/12"
-                android:textColor="@color/textColorPrimary"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:text="12"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_bar_got"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="3"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_bar_need"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="10"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_crw_got"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="11"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_crw_need"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="11"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_tch_got"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="6"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:id="@+id/evt_tch_need"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="10dp"
+                android:text="12"
+                android:textColor="@color/textColorPrimary" />
         </LinearLayout>
 
     </RelativeLayout>

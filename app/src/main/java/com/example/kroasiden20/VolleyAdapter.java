@@ -14,7 +14,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 public class VolleyAdapter {
-    static final String endpoint = "https://itfag.usn.no/~163357/api.php";
+    static final String endpoint = "https://itfag.usn.no/~216714/api.php";
 
     private Context ctx;
     private RequestQueue queue;

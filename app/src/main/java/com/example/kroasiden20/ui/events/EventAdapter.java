@@ -1,98 +1,102 @@
-/*
- * Copyright (C) 2018 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.kroasiden20.ui.events;
-
 
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
 import com.example.kroasiden20.R;
 import java.util.ArrayList;
 
 
-class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>  {
+class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
 
-    // Member variables.
-    private ArrayList<Event> eEventsData;
-    private Context eContext;
+    private ArrayList<Event> eventListen;
+    private LayoutInflater minInflater;
+    private Context ctx;
+    private FragmentActivity parent;
 
-
-
-
-    EventAdapter(Context context, ArrayList<Event> eventData) {
-        this.eEventsData = eventData;
-        this.eContext = context;
+    EventAdapter(FragmentActivity parent, ArrayList<Event> eventListen) {
+        this.parent = parent;
+        ctx = parent.getApplicationContext();
+        minInflater = LayoutInflater.from(ctx);
+        this.eventListen = eventListen;
     }
 
 
 
     @Override
-    public EventAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(eContext).
-                inflate(R.layout.list_item, parent, false));
-    }
+    public EventAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View mEventView = minInflater.inflate(R.layout.list_item, parent, false);
 
-
-    @Override
-    public void onBindViewHolder(EventAdapter.ViewHolder holder, int position) {
-        // Get current sport.
-        Event currentEvent = eEventsData.get(position);
-
-        // Populate the textviews with data.
-        holder.bindTo(currentEvent);
+        return new EventViewHolder(mEventView, this);
     }
 
 
     @Override
     public int getItemCount() {
-        return eEventsData.size();
+        return eventListen.size();
+    }
+
+
+    @Override
+    public void onBindViewHolder(EventAdapter.EventViewHolder holder, int position) {
+       Event event = eventListen.get(position);
+        System.out.println("bind view holder ok");
+       EventViewHolder vh = holder;
+       String endTime = " - " + event.evtEnd;
+       String secNeed = "/" + event.evtSec;
+       String barNeed = "/" + event.evtBar;
+       String crwNeed = "/" + event.evtCrw;
+       String tchNeed = "/" + event.evtTch;
+       vh.evtIdView.setText(event.evtId);
+       vh.evtNameView.setText(event.evtName);
+       vh.evtDateView.setText(event.evtDate);
+       vh.evtStartView.setText(event.evtStart);
+       vh.evtEndView.setText(endTime);
+       vh.evtTextView.setText(event.evtTxt);
+       vh.evtSecView.setText(secNeed);
+       vh.evtBarView.setText(barNeed);
+       vh.evtCrwView.setText(crwNeed);
+       vh.evtTchView.setText(tchNeed);
+
+
     }
 
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-
-        // Member Variables for the TextViews
-        private TextView eTitleText;
-        private TextView eInfoText;
-        private ImageView eEventImage;
+    class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        final TextView evtIdView, evtNameView, evtDateView, evtStartView, evtEndView, evtTextView, evtSecView, evtBarView, evtCrwView, evtTchView;
+        final EventAdapter mittAdapter;
 
 
-        ViewHolder(View itemView) {
+
+        public EventViewHolder(View itemView, EventAdapter adapter) {
             super(itemView);
+            evtIdView       = (TextView) itemView.findViewById(R.id.evt_id);
+            evtNameView     = (TextView) itemView.findViewById(R.id.evt_name);
+            evtDateView     = (TextView) itemView.findViewById(R.id.evt_date);
+            evtStartView    = (TextView) itemView.findViewById(R.id.evt_start);
+            evtEndView      = (TextView) itemView.findViewById(R.id.evt_end);
+            evtTextView     = (TextView) itemView.findViewById(R.id.evt_text);
+            evtSecView      = (TextView) itemView.findViewById(R.id.evt_sec_need);
+            evtBarView      = (TextView) itemView.findViewById(R.id.evt_bar_need);
+            evtCrwView      = (TextView) itemView.findViewById(R.id.evt_crw_need);
+            evtTchView      = (TextView) itemView.findViewById(R.id.evt_tch_need);
+            this.mittAdapter = adapter;
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            String evtID = evtIdView.getText().toString();
+            if (evtID != null) ;
+            {
 
-            // Initialize the views.
-            eTitleText = itemView.findViewById(R.id.title);
-            eInfoText = itemView.findViewById(R.id.subTitle);
-            eEventImage = itemView.findViewById(R.id.eventImage);
-
+            }
         }
 
-        void bindTo(Event currentEvent){
-            // Populate the textviews with data.
-            eTitleText.setText(currentEvent.getTitle());
-            eInfoText.setText(currentEvent.getInfo());
-            Glide.with(eContext).load(currentEvent.getImageResource()).into(eEventImage);
-        }
     }
 }
