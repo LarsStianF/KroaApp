@@ -24,29 +24,43 @@
                 app:cardBackgroundColor="@android:color/black">
 
                 <ImageView
-                    android:id="@+id/kroalogo"
+                    android:id="@+id/p_kroalogo"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/kroa_logo" />
 
                 <TextView
-                    android:id="@+id/welcome_toast"
+                    android:id="@+id/p_welcome_toast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
+                    android:padding="5dp"
                     android:text="@string/welcome_username"
                     android:textColor="@android:color/white"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/last_volunteered"
+                    android:id="@+id/p_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="230dp"/>
+
+                <TextView
+                    android:id="@+id/p_last_volunteered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="35dp"
-                    android:text="@string/last_volunteered"
+                    android:text="@string/p_last_volunteered"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/p_last_stat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="240dp"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -56,13 +70,13 @@
                 app:cardBackgroundColor="@android:color/white">
 
                 <ImageView
-                    android:id="@+id/enhet"
+                    android:id="@+id/p_enhetlogo"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/enhet" />
 
                 <TextView
-                    android:id="@+id/spare_units"
+                    android:id="@+id/p_spare_units"
                     android:layout_width="186dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="100dp"
@@ -72,14 +86,12 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/spared_units"
+                    android:id="@+id/p_spared_units"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="300dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="number"
-                    android:text="5"
                     android:textSize="24sp" />
 
             </androidx.cardview.widget.CardView>
@@ -90,13 +102,13 @@
                 app:cardBackgroundColor="@android:color/white">
 
                 <ImageView
-                    android:id="@+id/times_worked_img"
+                    android:id="@+id/p_times_worked_img"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/total" />
 
                 <TextView
-                    android:id="@+id/times_worked"
+                    android:id="@+id/p_times_worked"
                     android:layout_width="186dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="100dp"
@@ -106,14 +118,12 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/timesWorked"
+                    android:id="@+id/p_worked"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="300dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="number"
-                    android:text="10"
                     android:textSize="24sp" />
 
             </androidx.cardview.widget.CardView>
@@ -124,13 +134,13 @@
                 app:cardBackgroundColor="@android:color/white">
 
                 <ImageView
-                    android:id="@+id/this_month"
+                    android:id="@+id/this_month_img"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/month" />
 
                 <TextView
-                    android:id="@+id/worked_this_month"
+                    android:id="@+id/p_worked_this_month"
                     android:layout_width="186dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="100dp"
@@ -141,14 +151,12 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/monthly_worked"
+                    android:id="@+id/p_monthly_worked"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="300dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="number"
-                    android:text="5"
                     android:textSize="24sp" />
 
             </androidx.cardview.widget.CardView>
@@ -165,7 +173,7 @@
                     app:srcCompat="@drawable/jippi" />
 
                 <TextView
-                    android:id="@+id/jippi_until"
+                    android:id="@+id/p_jippi_until"
                     android:layout_width="186dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="100dp"
@@ -176,30 +184,29 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/jippi"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/p_jippi"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="300dp"
                     android:layout_marginTop="10dp"
                     android:lines="2"
-                    android:text="14th January"
                     android:textSize="24sp" />
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@android:color/darker_gray" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/confirmed_work"
+                        android:id="@+id/p_confirmed_work"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/black"
@@ -214,10 +221,10 @@
                         app:cardBackgroundColor="#b8b8b8">
 
                         <TextView
-                            android:id="@+id/event_1"
+                            android:id="@+id/confirmed_event_1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/event1"
+                            android:text="@string/working_event1"
                             android:textSize="24sp" />
 
                         <TextView
@@ -243,10 +250,10 @@
                         app:cardBackgroundColor="#dedede">
 
                         <TextView
-                            android:id="@+id/event_2"
+                            android:id="@+id/confirmed_event_2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/event2"
+                            android:text="@string/working_event2"
                             android:textSize="24sp" />
 
                         <TextView
@@ -271,12 +278,12 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@android:color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -295,10 +302,10 @@
                         app:cardBackgroundColor="#b8b8b8">
 
                         <TextView
-                            android:id="@+id/event_3"
+                            android:id="@+id/pending_event_1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/event3"
+                            android:text="@string/pending_event1"
                             android:textSize="24sp" />
 
                         <TextView
@@ -324,10 +331,10 @@
                         app:cardBackgroundColor="#dedede">
 
                         <TextView
-                            android:id="@+id/event_4"
+                            android:id="@+id/pending_event_2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/event4"
+                            android:text="@string/pending_event2"
                             android:textSize="24sp" />
 
                         <TextView
