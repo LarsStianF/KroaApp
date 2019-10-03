@@ -17,15 +17,20 @@
 package com.example.kroasiden20.ui.volunteer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.example.kroasiden20.ui.volunteer.VolunteerActivity;
 import com.example.kroasiden20.R;
+
 import java.util.ArrayList;
 
 
@@ -34,21 +39,30 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
     // Member variables.
     private ArrayList<Volunteer> vVolunteerData;
     private Context vContext;
+    private FragmentActivity parent;
+    private LayoutInflater minInflater;
 
 
 
-
-    VolunteerAdapter(Context context, ArrayList<Volunteer> eventData) {
-        this.vVolunteerData = eventData;
-        this.vContext = context;
+    VolunteerAdapter(FragmentActivity parent, ArrayList<Volunteer> volListen) {
+        this.parent = parent;
+        vContext = parent.getApplicationContext();
+        minInflater = LayoutInflater.from(vContext);
+        this.vVolunteerData = volListen;
     }
 
 
 
     @Override
     public VolunteerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(vContext).
-                inflate(R.layout.volunteer_item, parent, false));
+        View vVolView = minInflater.inflate(R.layout.volunteer_item, parent, false);
+
+        return new ViewHolder(vVolView, this);
+    }
+
+    @Override
+    public int getItemCount() {
+        return vVolunteerData.size();
     }
 
 
@@ -56,6 +70,7 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
     public void onBindViewHolder(VolunteerAdapter.ViewHolder holder, int position) {
         // Get current sport.
         Volunteer currentVol = vVolunteerData.get(position);
+        ViewHolder vh = holder;
 
         if (position %2 == 1) {
             holder.itemView.setBackgroundColor(Color.parseColor("#80CECECE"));
@@ -64,18 +79,19 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         }
 
         // Populate the textviews with data.
-        holder.bindTo(currentVol);
+        vh.vName.setText(currentVol.getName());
+        vh.vRole.setText(currentVol.getRole());
+        vh.vEmail.setText("Email: " + currentVol.getEmail());
+        vh.vPhone.setText("Phone: " + currentVol.getPhone());
+        vh.vLastVol.setText("Last Volunteered: " + currentVol.getLastVol());
     }
 
 
-    @Override
-    public int getItemCount() {
-        return vVolunteerData.size();
-    }
 
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // Member Variables for the TextViews
         private TextView vName;
@@ -87,9 +103,10 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         private ImageView vBarImg;
         private ImageView vSecImg;
         private ImageView vTechImg;
+        final VolunteerAdapter mittAdapter;
 
 
-        ViewHolder(View itemView) {
+        ViewHolder(View itemView, VolunteerAdapter adapter) {
             super(itemView);
 
             // Initialize the views.
@@ -102,16 +119,28 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
             vBarImg = itemView.findViewById(R.id.barImg);
             vSecImg = itemView.findViewById(R.id.secImg);
             vTechImg = itemView.findViewById(R.id.techImg);
+            this.mittAdapter = adapter;
+            itemView.setOnClickListener(this);
 
         }
 
-        void bindTo(Volunteer currentVol){
-            // Populate the textviews with data.
-            vName.setText(currentVol.getName());
-            vRole.setText(currentVol.getRole());
-            vEmail.setText(currentVol.getEmail());
-            vPhone.setText(currentVol.getPhone());
-            vLastVol.setText(currentVol.getLastVol());
-        }
+
+
+        @Override
+        public void onClick(View view) {
+
+            Volunteer curVol = vVolunteerData.get(getAdapterPosition());
+            Intent detailIntent = new Intent(parent, VolunteerActivity.class);
+            detailIntent.putExtra("Name", curVol.getName());
+            detailIntent.putExtra("Role", curVol.getRole());
+            detailIntent.putExtra("Email", curVol.getEmail());
+            detailIntent.putExtra("Phone", curVol.getPhone());
+            detailIntent.putExtra("LastVol", curVol.getLastVol());
+
+            detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            vContext.startActivity(detailIntent);
+        } // End of onClick()
     }
+
+
 }

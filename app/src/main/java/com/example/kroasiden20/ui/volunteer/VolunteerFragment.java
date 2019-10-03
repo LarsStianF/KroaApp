@@ -1,10 +1,12 @@
 package com.example.kroasiden20.ui.volunteer;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +28,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kroasiden20.EventActivity;
 import com.example.kroasiden20.R;
-
+import com.example.kroasiden20.ui.events.EventsFragment;
 
 
 import org.json.JSONException;
@@ -39,11 +42,15 @@ public class VolunteerFragment extends Fragment implements Response.Listener<Str
 
     private RecyclerView vRecyclerView;
     private ArrayList<Volunteer> vVolunteerData;
+    public final static String VOL_INTENT_ID =
+            "com.example.kroasiden20.ui.volunteer.VolunteerFragment.SHOW_VOLUNTEER";
     private ArrayList<Volunteer> volArrayList = new ArrayList<Volunteer>();
 
     private VolunteerAdapter vAdapter;
 
     private VolunteerViewModel volunteerViewModel;
+
+    Volunteer curVol;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -113,6 +120,25 @@ public class VolunteerFragment extends Fragment implements Response.Listener<Str
         ConnectivityManager conMgr = (ConnectivityManager) this.getActivity().getSystemService(Activity.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = conMgr.getActiveNetworkInfo();
         return (networkInfo != null && networkInfo.isConnected());
+    }
+
+
+    public final static int REQUEST_CODE_VIS_VARE = 0;
+
+    public void showVolunteer(String volID) {
+        Intent startIntent = new Intent(this.getActivity(), VolunteerActivity.class);
+        startIntent.putExtra(VolunteerFragment.VOL_INTENT_ID, volID);
+        startActivityForResult(startIntent, VolunteerFragment.REQUEST_CODE_VIS_VARE);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data ) {
+        if (requestCode == REQUEST_CODE_VIS_VARE && resultCode == Activity.RESULT_OK){
+            Log.d("VolunteerFragment: ", "onActivityResult()");
+            initializeData();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 
