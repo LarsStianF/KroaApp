@@ -9,7 +9,6 @@ import java.util.ArrayList;
 class Volunteer {
 
     // Member variables representing the title and information about the sport.
-    private String id;
     private String name;
     private String role;
     private String email;
@@ -18,7 +17,6 @@ class Volunteer {
 
 
     static final String TABLE_NAME = "volunteer";
-    static final String COL_VOLUNTEER_ID = "ID";
     static final String COL_VOLUNTEER_FIRSTNAME = "Firstname";
     static final String COL_VOLUNTEER_LASTNAME = "Lastname";
     static final String COL_VOLUNTEER_ROLE = "user_type";
@@ -26,8 +24,7 @@ class Volunteer {
     static final String COL_VOLUNTEER_PHONE = "nr";
     static final String COL_VOLUNTEER_lastVol = "";
 
-    Volunteer(String id, String firstname, String lastname, String role, String email, String phone, String lastVol) {
-        this.id = id;
+    Volunteer(String firstname, String lastname, String role, String email, String phone, String lastVol) {
         this.name = firstname + " " + lastname;
         this.role = role;
         this.email = email;
@@ -37,7 +34,6 @@ class Volunteer {
     }
 
     public Volunteer(JSONObject jsonVolunteer){
-        this.id = jsonVolunteer.optString(COL_VOLUNTEER_ID);
         this.name = jsonVolunteer.optString(COL_VOLUNTEER_FIRSTNAME) + " " + jsonVolunteer.optString(COL_VOLUNTEER_LASTNAME);
         this.role = jsonVolunteer.optString(COL_VOLUNTEER_ROLE);
         this.email = jsonVolunteer.optString(COL_VOLUNTEER_EMAIL);
@@ -61,7 +57,6 @@ class Volunteer {
     public JSONObject toJSONObject() {
         JSONObject jsonVolunteer = new JSONObject();
         try {
-            jsonVolunteer.put(COL_VOLUNTEER_ID, this.id);
             jsonVolunteer.put(COL_VOLUNTEER_FIRSTNAME + " " + COL_VOLUNTEER_LASTNAME, this.name);
             jsonVolunteer.put(COL_VOLUNTEER_ROLE, this.role);
             jsonVolunteer.put(COL_VOLUNTEER_EMAIL, this.email);
@@ -73,8 +68,6 @@ class Volunteer {
         }
         return jsonVolunteer;
     }
-
-    String getID() { return id; }
 
     String getName() {
         return name;

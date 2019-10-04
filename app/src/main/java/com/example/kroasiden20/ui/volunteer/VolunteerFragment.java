@@ -38,7 +38,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 public class VolunteerFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
-    public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
+    public final static String ENDPOINT = "https://itfag.usn.no/~216714/api.php";
 
     private RecyclerView vRecyclerView;
     private ArrayList<Volunteer> vVolunteerData;
@@ -79,7 +79,6 @@ public class VolunteerFragment extends Fragment implements Response.Listener<Str
 
     public void initializeData() {
         String volunteerList_URL = ENDPOINT + "/volunteer?order=ID,asc&transform=1";
-
         Toast.makeText(this.getActivity(), volunteerList_URL, Toast.LENGTH_LONG).show();
         System.out.println(volunteerList_URL);
         if(isOnline()) {
@@ -140,13 +139,6 @@ public class VolunteerFragment extends Fragment implements Response.Listener<Str
             initializeData();
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        initializeData();
-
     }
 
 

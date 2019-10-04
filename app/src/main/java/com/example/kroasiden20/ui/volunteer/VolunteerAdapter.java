@@ -19,7 +19,6 @@ package com.example.kroasiden20.ui.volunteer;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,39 +80,15 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
 
         // Populate the textviews with data.
         vh.vName.setText(currentVol.getName());
-        // Because joins suck, #quickfix, is in database.
-        Log.d("STATE",currentVol.getRole());
-        if (currentVol.getRole().equals("1")){
-            vh.vRole.setText("Root");
-
-        } else if (currentVol.getRole().equals("2") ) {
-            vh.vRole.setText("Daglig Leder");
-
-
-        } else if (currentVol.getRole().equals("3")) {
-            vh.vRole.setText("Volunteer Coordinatorr");
-
-
-        } else if (currentVol.getRole().equals("4")) {
-            vh.vRole.setText("Event Manager");
-
-
-        } else if (currentVol.getRole().equals("5")) {
-            vh.vRole.setText("Manager");
-
-
-        } else if (currentVol.getRole().equals("6")) {
-            vh.vRole.setText("Volunteer");
-
-
-        } else{
-            vh.vRole.setText("This no Work");
-
-        }
+        vh.vRole.setText(currentVol.getRole());
         vh.vEmail.setText("Email: " + currentVol.getEmail());
         vh.vPhone.setText("Phone: " + currentVol.getPhone());
         vh.vLastVol.setText("Last Volunteered: " + currentVol.getLastVol());
     }
+
+
+
+
 
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -156,32 +131,8 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
 
             Volunteer curVol = vVolunteerData.get(getAdapterPosition());
             Intent detailIntent = new Intent(parent, VolunteerActivity.class);
-            detailIntent.putExtra("ID", curVol.getID());
             detailIntent.putExtra("Name", curVol.getName());
             detailIntent.putExtra("Role", curVol.getRole());
-
-        /*    if ( curVol.getRole().equals("1")){
-                detailIntent.putExtra("Role", "Root");
-
-            } else if ( curVol.getRole().equals("2") ) {
-                detailIntent.putExtra("Role", "Daglig Leder");
-
-            } else if ( curVol.getRole().equals("3")) {
-                detailIntent.putExtra("Role", "Volunteer Coordinatorr");
-
-            } else if ( curVol.getRole().equals("4")) {
-                detailIntent.putExtra("Role", "Event Manager");
-
-            } else if ( curVol.getRole().equals("5")) {
-                detailIntent.putExtra("Role", "Manager");
-
-            } else if ( curVol.getRole().equals("6")) {
-                detailIntent.putExtra("Role", "Volunteer");
-
-            } else {
-                detailIntent.putExtra("Role", "This no Work");
-            }
-*/
             detailIntent.putExtra("Email", curVol.getEmail());
             detailIntent.putExtra("Phone", curVol.getPhone());
             detailIntent.putExtra("LastVol", curVol.getLastVol());
@@ -190,4 +141,6 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
             vContext.startActivity(detailIntent);
         } // End of onClick()
     }
+
+
 }

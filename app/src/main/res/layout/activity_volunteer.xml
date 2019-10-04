@@ -19,15 +19,15 @@
 
 
 
-        <Spinner
+        <TextView
             android:id="@+id/userRole"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/volunteerName"
             android:layout_centerHorizontal="true"
             android:layout_marginVertical="10dp"
-            android:textSize="16sp"
-            android:spinnerMode="dropdown"/>
+            android:text="Crew Manager"
+            android:textSize="16sp" />
 
 
 
@@ -148,9 +148,7 @@
             android:text="Last volunteered: 23 January 2019"
             android:paddingHorizontal="10dp"
             android:textSize="12sp" />
-
     <Button
-        android:id="@+id/btnDelVol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DELETE VOLUNTEER"
@@ -158,7 +156,6 @@
         />
 
     <Button
-        android:id="@+id/btnUpdVol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Commit change"
