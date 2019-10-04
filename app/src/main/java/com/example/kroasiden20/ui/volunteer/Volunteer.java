@@ -6,15 +6,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-class Volunteer {
+public class Volunteer {
 
     // Member variables representing the title and information about the sport.
-    private String id;
-    private String name;
-    private String role;
-    private String email;
-    private String phone;
-    private String lastVol;
+    String id;
+    String name;
+    String role;
+    String email;
+    String phone;
+    String lastVol;
 
 
     static final String TABLE_NAME = "volunteer";
@@ -26,7 +26,7 @@ class Volunteer {
     static final String COL_VOLUNTEER_PHONE = "nr";
     static final String COL_VOLUNTEER_lastVol = "";
 
-    Volunteer(String id, String firstname, String lastname, String role, String email, String phone, String lastVol) {
+    public Volunteer(String id, String firstname, String lastname, String role, String email, String phone, String lastVol) {
         this.id = id;
         this.name = firstname + " " + lastname;
         this.role = role;
@@ -44,6 +44,7 @@ class Volunteer {
         this.phone = jsonVolunteer.optString(COL_VOLUNTEER_PHONE);
         this.lastVol = jsonVolunteer.optString(COL_VOLUNTEER_lastVol);
     }
+    public Volunteer() {}
 
     public static ArrayList<Volunteer> populateVolunteerList(String jsonVolunteerString)
             throws JSONException, NullPointerException {

@@ -18,16 +18,34 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kroasiden20.R;
 import com.example.kroasiden20.VolleyAdapter;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class VolunteerActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
+
+    private Volunteer curVol = new Volunteer();
+
     public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
+    Boolean updateOK = false;
+    Spinner volRole;
     String volIDDelete;
+    String postmanTest = "{\n" +
+            "\n" +
+            "\"Firstname\": \"Postman\",\n" +
+            "\"Lastname\": \"Test\",\n" +
+            "\"nr\": \"66664444\",\n" +
+            "\"Email\": \"postman@test.no\",\n" +
+            "\"Password\": \"postman123\",\n" +
+            "\"Unit\": 0,\n" +
+            "\"user_type\": 6\n" +
+            "\n" +
+            "}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +54,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
 
         TextView volName = findViewById(R.id.volunteerName);
-        Spinner volRole = findViewById(R.id.userRole);
+        volRole = findViewById(R.id.userRole);
         TextView volEmail = findViewById(R.id.volunteerEmail);
         TextView volPhone = findViewById(R.id.volunteerPhone);
         TextView volLastVol = findViewById(R.id.lastVol);
@@ -75,14 +93,39 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
         btnUpdVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateVol(getIntent().getStringExtra("ID"),"1");
-                finish();
-
+                String volID = getIntent().getStringExtra("ID");
+                updateVolunteerRole();
+                updateVol(volID, curVol);
+                //finish();
             }
 
         });
 
 
+    }
+
+    private void updateVolunteerRole() {
+        int thisRole = volRole.getSelectedItemPosition()+1;
+        curVol.role= String.valueOf(thisRole);
+
+        /*
+        String thisRole = volRole.getSelectedItem().toString();
+        Toast.makeText(this, "Current selected role: " + thisRole , Toast.LENGTH_LONG).show();
+        if (thisRole.equals("Root")){
+            curVol.role = "1";
+        } else if (thisRole.equals("Daglig Leder")){
+            curVol.role = "2";
+        } else if (thisRole.equals("Volunteer Coordinator")) {
+            curVol.role = "3";
+        } else if (thisRole.equals("Event Manager")) {
+            curVol.role = "4";
+        }  else if (thisRole.equals("Manager")) {
+            curVol.role = "5";
+        } else {
+            curVol.role = "6";
+        }
+*/
+        //
     }
 
 
@@ -117,16 +160,28 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
     }
 
-    private void updateVol(String volID, String newVolRole) {
-        String volunteerUpdateURL = ENDPOINT + "/volunteer/";
+    private void updateVol(String volID, Volunteer curVol) {
+        String volunteerUpdateURL = ENDPOINT + "/volunteer/" + volID;
+        JSONObject jsonVolunteer = curVol.toJSONObject();
         if(isOnline()) {
             System.out.println("STATUS: OPERATIONAL");
             RequestQueue queue = Volley.newRequestQueue(this);
-            StringRequest stringRequest =
-                    new StringRequest(Request.Method.PUT, volunteerUpdateURL + volID, this, this);
-            queue.add(stringRequest);
-            System.out.println(stringRequest);
-            Toast.makeText(this, "User Deleted successfully", Toast.LENGTH_SHORT).show();
+
+            JsonObjectRequest jsonObjRequest = new JsonObjectRequest(Request.Method.PUT, volunteerUpdateURL, jsonVolunteer, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    updateOK = true;
+                }
+            },  new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    updateOK = false;
+                }
+            });
+
+            queue.add(jsonObjRequest);
+            System.out.println(jsonObjRequest);
+            Toast.makeText(this, "User role updated successfully", Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(this, "ERROR: NO CONNECTION. STATUS: INOPERATIVE", Toast.LENGTH_SHORT).show();
