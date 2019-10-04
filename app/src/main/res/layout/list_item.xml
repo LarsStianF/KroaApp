@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    android:backgroundTint="@color/colorPrimary"
+    android:backgroundTint="@color/cardBackground"
+    app:cardCornerRadius="15dp"
 
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/evt_id"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/evt_name"
@@ -32,7 +30,7 @@
             android:layout_marginTop="15dp"
             android:padding="8dp"
             android:text="Kroa i Bø"
-            android:textColor="@color/textColorPrimary"
+            android:textColor="@color/colorPrimary"
             android:textSize="40sp" />
 
         <TextView
@@ -40,12 +38,12 @@
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/evt_name"
+            android:gravity="center"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
-            android:gravity="center"
             android:text="20.09.2019"
-            android:layout_below="@+id/evt_name"
-            android:textColor="@color/textColorPrimary" />
+            android:textColor="@color/colorPrimary" />
 
         <LinearLayout
             android:id="@+id/evt_start_end"
@@ -63,7 +61,7 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text="23:00 -"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_end"
@@ -73,8 +71,9 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text=" 01:00"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/evt_text"
             style="@style/TextAppearance.AppCompat.Subhead"
@@ -82,69 +81,67 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/evt_start_end"
             android:gravity="center"
-            android:paddingEnd="30dp"
             android:paddingStart="30dp"
             android:paddingTop="8dp"
+            android:paddingEnd="30dp"
             android:paddingBottom="10dp"
             android:text="Hei vi kjører fort, veldig fort"
-            android:textColor="@color/textColorPrimary" />
+            android:textColor="@color/colorPrimary" />
 
         <LinearLayout
             android:id="@+id/men_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_below="@id/evt_text"
-            android:backgroundTint="@color/textColorPrimary"
-            android:gravity="center">
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/man_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/man_red"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
-            </ImageView>
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/man_red"></ImageView>
 
             <ImageView
                 android:id="@+id/man_red"
-                android:layout="@+id/man_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/man_red"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
-            </ImageView>
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:layout="@+id/man_black"
+                android:src="@drawable/man_red"></ImageView>
 
             <ImageView
                 android:id="@+id/man_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/man_blue"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
-            </ImageView>
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/man_blue"></ImageView>
 
             <ImageView
                 android:id="@+id/man_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/man_red"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp">
-            </ImageView>
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/man_red"></ImageView>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_below="@+id/men_panel"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/evt_sec_got"
@@ -154,7 +151,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_sec_need"
@@ -164,7 +161,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:text="12"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_bar_got"
@@ -174,27 +171,27 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="3"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_bar_need"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:text="10"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_crw_got"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="11"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_crw_need"
@@ -204,7 +201,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="11"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_tch_got"
@@ -214,7 +211,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="6"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_tch_need"
@@ -224,7 +221,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:text="12"
-                android:textColor="@color/textColorPrimary" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
     </RelativeLayout>

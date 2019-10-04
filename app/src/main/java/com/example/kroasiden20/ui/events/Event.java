@@ -1,11 +1,9 @@
 package com.example.kroasiden20.ui.events;
 
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class Event {
@@ -17,9 +15,13 @@ public class Event {
      String evtStart;
      String evtEnd;
      String evtTxt;
+     String evtSecGot;
      String evtSec;
+     String evtBarGot;
      String evtBar;
+     String evtCrwGot;
      String evtCrw;
+     String evtTchGot;
      String evtTch;
 
     static final String TABELL_NAVN         = "event";
@@ -29,23 +31,31 @@ public class Event {
     static final String KOL_START           = "Time_Start";
     static final String KOL_END             = "Time_End";
     static final String KOL_TEXT            = "Event_text";
+    static final String KOL_SEC_GOT         = "event_sec_got";
     static final String KOL_SEC             = "Event_sec";
+    static final String KOL_BAR_GOT         = "event_bar_got";
     static final String KOL_BAR             = "Event_bar";
+    static final String KOL_CRW_GOT         = "event_crew_got";
     static final String KOL_CRW             = "Event_crew";
+    static final String KOL_TCH_GOT         = "event_tech_got";
     static final String KOL_TCH             = "Event_tech";
 
 
     //  Constructor
-    Event(String evtId, String evtName, String evtDate, String evtStart, String evtEnd, String evtTxt, String evtSec, String evtBar, String evtCrw, String evtTch) {
+    Event(String evtId, String evtName, String evtDate, String evtStart, String evtEnd, String evtTxt, String evtSecGot, String evtSec, String evtBarGot, String evtBar, String evtCrwGot, String evtCrw, String evtTchGot, String evtTch) {
         this.evtId = evtId;
         this.evtName = evtName;
         this.evtDate = evtDate;
         this.evtStart = evtStart;
         this.evtEnd = evtEnd;
         this.evtTxt = evtTxt;
+        this.evtSecGot = evtSecGot;
         this.evtSec = evtSec;
+        this.evtBarGot = evtBarGot;
         this.evtBar = evtBar;
+        this.evtCrwGot = evtCrwGot;
         this.evtCrw = evtCrw;
+        this.evtTchGot = evtTchGot;
         this.evtTch = evtTch;
 
     }
@@ -60,9 +70,13 @@ public class Event {
         this.evtStart       = jsonEvent.optString(KOL_START);
         this.evtEnd         = jsonEvent.optString(KOL_END);
         this.evtTxt         = jsonEvent.optString(KOL_TEXT);
+        this.evtSecGot      = jsonEvent.optString(KOL_SEC_GOT);
         this.evtSec         = jsonEvent.optString(KOL_SEC);
+        this.evtBarGot      = jsonEvent.optString(KOL_BAR_GOT);
         this.evtBar         = jsonEvent.optString(KOL_BAR);
+        this.evtCrwGot      = jsonEvent.optString(KOL_CRW_GOT);
         this.evtCrw         = jsonEvent.optString(KOL_CRW);
+        this.evtTchGot      = jsonEvent.optString(KOL_TCH_GOT);
         this.evtTch         = jsonEvent.optString(KOL_TCH);
     }
 
@@ -72,14 +86,19 @@ public class Event {
         ArrayList<Event> eventListe = new ArrayList<Event>();
         JSONObject jsonData = new JSONObject(jsonEventString);
         JSONArray jsonEventTabell = jsonData.optJSONArray(TABELL_NAVN);
+        System.out.println(jsonEventString);
 
         for(int i=0; i< jsonEventTabell.length(); i++) {
             JSONObject jsonEvent = (JSONObject) jsonEventTabell.get(i);
+            System.out.println(jsonEventTabell.get(i));
             Event detteEventet = new Event(jsonEvent);
             eventListe.add(detteEventet);
+
         }
         return eventListe;
     }
+
+
 
     JSONObject toJSONObject() {
         JSONObject jsonEvent = new JSONObject();
@@ -90,9 +109,13 @@ public class Event {
             jsonEvent.put(KOL_START, this.evtStart);
             jsonEvent.put(KOL_END, this.evtEnd);
             jsonEvent.put(KOL_TEXT, this.evtTxt);
+            jsonEvent.put(KOL_SEC_GOT, this.evtSecGot);
             jsonEvent.put(KOL_SEC, this.evtSec);
+            jsonEvent.put(KOL_BAR_GOT, this.evtBarGot);
             jsonEvent.put(KOL_BAR, this.evtBar);
+            jsonEvent.put(KOL_CRW_GOT, this.evtCrwGot);
             jsonEvent.put(KOL_CRW, this.evtCrw);
+            jsonEvent.put(KOL_TCH_GOT, this.evtTchGot);
             jsonEvent.put(KOL_TCH, this.evtTch);
         }
         catch (JSONException e) {
@@ -114,6 +137,40 @@ public class Event {
         catch (Exception e) {
         }
         return nyEvent;
+    }
+
+
+
+    public String getEvtSecGot() {
+        return evtSecGot;
+    }
+
+    public void setEvtSecGot(String evtSecGot) {
+        this.evtSecGot = evtSecGot;
+    }
+
+    public String getEvtBarGot() {
+        return evtBarGot;
+    }
+
+    public void setEvtBarGot(String evtBarGot) {
+        this.evtBarGot = evtBarGot;
+    }
+
+    public String getEvtCrwGot() {
+        return evtCrwGot;
+    }
+
+    public void setEvtCrwGot(String evtCrwGot) {
+        this.evtCrwGot = evtCrwGot;
+    }
+
+    public String getEvtTchGot() {
+        return evtTchGot;
+    }
+
+    public void setEvtTchGot(String evtTchGot) {
+        this.evtTchGot = evtTchGot;
     }
 
     public String getEvtId() {
@@ -154,5 +211,25 @@ public class Event {
 
     public String getEvtTch() {
         return evtTch;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "evtId='" + evtId + '\'' +
+                ", evtName='" + evtName + '\'' +
+                ", evtDate='" + evtDate + '\'' +
+                ", evtStart='" + evtStart + '\'' +
+                ", evtEnd='" + evtEnd + '\'' +
+                ", evtTxt='" + evtTxt + '\'' +
+                ", evtSecGot='" + evtSecGot + '\'' +
+                ", evtSec='" + evtSec + '\'' +
+                ", evtBarGot='" + evtBarGot + '\'' +
+                ", evtBar='" + evtBar + '\'' +
+                ", evtCrwGot='" + evtCrwGot + '\'' +
+                ", evtCrw='" + evtCrw + '\'' +
+                ", evtTchGot='" + evtTchGot + '\'' +
+                ", evtTch='" + evtTch + '\'' +
+                '}';
     }
 }
