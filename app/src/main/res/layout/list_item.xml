@@ -104,7 +104,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/man_red"></ImageView>
+                android:src="@drawable/man_black"/>
 
             <ImageView
                 android:id="@+id/man_red"
@@ -114,7 +114,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
                 android:layout="@+id/man_black"
-                android:src="@drawable/man_red"></ImageView>
+                android:src="@drawable/man_red"/>
 
             <ImageView
                 android:id="@+id/man_blue"
@@ -123,7 +123,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/man_blue"></ImageView>
+                android:src="@drawable/man_blue"/>
 
             <ImageView
                 android:id="@+id/man_yellow"
@@ -132,7 +132,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/man_red"></ImageView>
+                android:src="@drawable/man_red"/>
 
         </LinearLayout>
 
@@ -187,10 +187,10 @@
                 android:id="@+id/evt_crw_got"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="11"
+                android:text="0"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
