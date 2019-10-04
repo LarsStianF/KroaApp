@@ -7,10 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.kroasiden20.EventActivity;
 
+import com.example.kroasiden20.EventActivity;
+import com.example.kroasiden20.NavActivity;
 import com.example.kroasiden20.R;
 import java.util.ArrayList;
 
@@ -48,6 +51,7 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
     @Override
     public void onBindViewHolder(EventAdapter.EventViewHolder holder, int position) {
        Event event = eventListen.get(position);
+        System.out.println("bind view holder ok");
        EventViewHolder vh = holder;
        String endTime = " - " + event.evtEnd;
        String secNeed = "/" + event.evtSec;
@@ -64,10 +68,6 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
        vh.evtBarView.setText(barNeed);
        vh.evtCrwView.setText(crwNeed);
        vh.evtTchView.setText(tchNeed);
-       vh.evtSecGotView.setText(event.evtSecGot);
-       vh.evtBarGotView.setText(event.evtBarGot);
-       vh.evtcrwGotView.setText(event.evtCrwGot);
-       vh.evtTchGotView.setText(event.evtTchGot);
 
 
     }
@@ -75,27 +75,23 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
 
 
     class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        final TextView evtIdView, evtNameView, evtDateView, evtStartView, evtEndView, evtTextView, evtSecView, evtBarView, evtCrwView, evtTchView, evtSecGotView, evtBarGotView, evtcrwGotView, evtTchGotView;
+        final TextView evtIdView, evtNameView, evtDateView, evtStartView, evtEndView, evtTextView, evtSecView, evtBarView, evtCrwView, evtTchView;
         final EventAdapter mittAdapter;
 
 
 
         public EventViewHolder(View itemView, EventAdapter adapter) {
             super(itemView);
-            evtIdView        = (TextView) itemView.findViewById(R.id.evt_id);
-            evtNameView      = (TextView) itemView.findViewById(R.id.evt_name);
-            evtDateView      = (TextView) itemView.findViewById(R.id.evt_date);
-            evtStartView     = (TextView) itemView.findViewById(R.id.evt_start);
-            evtEndView       = (TextView) itemView.findViewById(R.id.evt_end);
-            evtTextView      = (TextView) itemView.findViewById(R.id.evt_text);
-            evtSecView       = (TextView) itemView.findViewById(R.id.evt_sec_need);
-            evtBarView       = (TextView) itemView.findViewById(R.id.evt_bar_need);
-            evtCrwView       = (TextView) itemView.findViewById(R.id.evt_crw_need);
-            evtTchView       = (TextView) itemView.findViewById(R.id.evt_tch_need);
-            evtSecGotView    = (TextView) itemView.findViewById(R.id.evt_sec_got);
-            evtBarGotView    = (TextView) itemView.findViewById(R.id.evt_bar_got);
-            evtcrwGotView    = (TextView) itemView.findViewById(R.id.evt_crw_got);
-            evtTchGotView    = (TextView) itemView.findViewById(R.id.evt_tch_got);
+            evtIdView       = (TextView) itemView.findViewById(R.id.evt_id);
+            evtNameView     = (TextView) itemView.findViewById(R.id.evt_name);
+            evtDateView     = (TextView) itemView.findViewById(R.id.evt_date);
+            evtStartView    = (TextView) itemView.findViewById(R.id.evt_start);
+            evtEndView      = (TextView) itemView.findViewById(R.id.evt_end);
+            evtTextView     = (TextView) itemView.findViewById(R.id.evt_text);
+            evtSecView      = (TextView) itemView.findViewById(R.id.evt_sec_need);
+            evtBarView      = (TextView) itemView.findViewById(R.id.evt_bar_need);
+            evtCrwView      = (TextView) itemView.findViewById(R.id.evt_crw_need);
+            evtTchView      = (TextView) itemView.findViewById(R.id.evt_tch_need);
             this.mittAdapter = adapter;
             itemView.setOnClickListener(this);
         }
@@ -109,14 +105,6 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
             detailIntent.putExtra("Start", currentEvent.getEvtStart());
             detailIntent.putExtra("End", currentEvent.getEvtEnd());
             detailIntent.putExtra("Txt", currentEvent.getEvtTxt());
-            detailIntent.putExtra("secNeed", currentEvent.getEvtSec());
-            detailIntent.putExtra("barNeed", currentEvent.getEvtBar());
-            detailIntent.putExtra("crwNeed", currentEvent.getEvtCrw());
-            detailIntent.putExtra("tchNeed", currentEvent.getEvtTch());
-            detailIntent.putExtra("secGot", currentEvent.getEvtSecGot());
-            detailIntent.putExtra("barGot", currentEvent.getEvtBarGot());
-            detailIntent.putExtra("crwGot", currentEvent.getEvtCrwGot());
-            detailIntent.putExtra("tchGot", currentEvent.getEvtTchGot());
 
             detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(detailIntent);

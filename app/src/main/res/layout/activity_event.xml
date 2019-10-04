@@ -27,7 +27,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
             android:padding="8dp"
-            android:text=""
+            android:text="Kroa i Bø"
             android:textColor="@color/colorPrimary"
             android:textSize="40sp" />
 
@@ -39,7 +39,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
             android:gravity="center"
-            android:text=""
+            android:text="20.09.2019"
             android:layout_below="@+id/nameDetail"
             android:textColor="@color/colorPrimary" />
 
@@ -58,14 +58,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
-                android:text=""
+                android:text="23:00 -"
                 android:textColor="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" - "
-                android:textColor="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/endDetail"
@@ -74,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
-                android:text=""
+                android:text=" 01:00"
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
         <TextView
@@ -88,278 +82,145 @@
             android:paddingStart="30dp"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
-            android:text=""
+            android:text="Hei vi kjører fort, veldig fort"
             android:textColor="@color/colorPrimary" />
 
-    <LinearLayout
-        android:id="@+id/men_panel_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textDetail"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:orientation="vertical">
-
         <LinearLayout
+            android:id="@+id/men_panel_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
+            android:orientation="horizontal"
+            android:layout_below="@id/textDetail"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center">
             <ImageView
                 android:id="@+id/man_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:src="@drawable/man_red"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/man_red" />
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp">
+            </ImageView>
 
-            <TextView
+            <ImageView
+                android:id="@+id/man_red"
+                android:layout="@+id/man_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/security_label"
-                android:textColor="@color/colorPrimary" />
+                android:src="@drawable/man_red"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp">
+            </ImageView>
 
-            <TextView
-                android:id="@+id/secDetailGot"
+            <ImageView
+                android:id="@+id/man_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="2"
-                android:textColor="@color/colorPrimary" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:text="@string/Slash" />
-
-            <TextView
-                android:id="@+id/secDetailNeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="12"
-                android:textColor="@color/colorPrimary" />
-
-
-            <Button
-                android:id="@+id/secButton"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
-                android:text="@string/signup_label"
-
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+                android:src="@drawable/man_blue"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp">
+            </ImageView>
 
             <ImageView
                 android:id="@+id/man_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:src="@drawable/man_red"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/man_blue" />
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp">
+            </ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/men_panel_detail"
+            android:gravity="center">
 
             <TextView
+                android:id="@+id/secDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/bar_label"
+                android:text="2"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/secDetailNeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="10dp"
+                android:text="12"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/barDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="91dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="2"
+                android:text="3"
                 android:textColor="@color/colorPrimary" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:text="@string/Slash" />
 
             <TextView
                 android:id="@+id/barDetailNeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="12"
-                android:textColor="@color/colorPrimary" />
-
-
-            <Button
-                android:id="@+id/barButton"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
-                android:text="@string/signup_label"
-
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/man_blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/man_red" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/crew_label"
+                android:text="10"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/crwDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="2"
+                android:text="11"
                 android:textColor="@color/colorPrimary" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:text="@string/Slash" />
 
             <TextView
                 android:id="@+id/crwDetailNeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="12"
-                android:textColor="@color/colorPrimary" />
-
-
-            <Button
-                android:id="@+id/crwButton"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
-                android:text="@string/signup_label"
-
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/man_red"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/man_black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/technical_label"
+                android:text="11"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/tchDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="51dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="2"
+                android:text="6"
                 android:textColor="@color/colorPrimary" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="2dp"
-                android:text="@string/Slash" />
 
             <TextView
                 android:id="@+id/tchDetailNeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:text="12"
                 android:textColor="@color/colorPrimary" />
-
-
-            <Button
-                android:id="@+id/tchButton"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
-                android:text="@string/signup_label"
-
-                android:textSize="12sp" />
-
         </LinearLayout>
 
-    </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
