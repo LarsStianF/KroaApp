@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
         android:layout_margin="8dp"
-        app:cardCornerRadius="8dp"
         android:backgroundTint="@color/colorPrimary"
 
         >
@@ -103,9 +105,10 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+           android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:id="@+id/man_black"
@@ -114,7 +117,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/man_red" />
+                android:src="@drawable/man_black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,7 +132,7 @@
                 android:id="@+id/secDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="62dp"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
@@ -159,18 +162,20 @@
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="150dp"
                 android:text="@string/signup_label"
+
 
                 android:textSize="12sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:id="@+id/man_yellow"
@@ -194,7 +199,7 @@
                 android:id="@+id/barDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="91dp"
+                android:layout_marginStart="130dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
@@ -224,7 +229,7 @@
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="150dp"
                 android:text="@string/signup_label"
 
                 android:textSize="12sp" />
@@ -232,10 +237,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:id="@+id/man_blue"
@@ -259,7 +265,7 @@
                 android:id="@+id/crwDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
@@ -289,7 +295,7 @@
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="148dp"
                 android:text="@string/signup_label"
 
                 android:textSize="12sp" />
@@ -297,9 +303,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
             <ImageView
                 android:id="@+id/man_red"
@@ -323,7 +331,7 @@
                 android:id="@+id/tchDetailGot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="51dp"
+                android:layout_marginStart="90dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
@@ -353,7 +361,7 @@
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="149dp"
                 android:text="@string/signup_label"
 
                 android:textSize="12sp" />
@@ -363,3 +371,4 @@
     </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>

@@ -16,8 +16,6 @@
         <activity
             android:name=".EventActivity"
             android:label="Event info"
-            android:parentActivityName=".NavActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             >
 
         </activity>
