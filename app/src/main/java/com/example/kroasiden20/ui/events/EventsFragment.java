@@ -104,7 +104,7 @@ public class EventsFragment extends Fragment implements Response.Listener<String
 
             try {
                 evtArrayList = Event.lagEventListe(response);
-                System.out.println(response);
+
 
                 oppdaterEventListView(evtArrayList);
 

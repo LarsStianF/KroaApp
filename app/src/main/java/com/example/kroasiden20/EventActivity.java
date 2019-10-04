@@ -42,6 +42,8 @@ public class EventActivity extends AppCompatActivity {
         barGot.setText(getIntent().getStringExtra("barGot"));
         crwGot.setText(getIntent().getStringExtra("crwGot"));
         tchGot.setText(getIntent().getStringExtra("tchGot"));
+
+
     }
 
 }
