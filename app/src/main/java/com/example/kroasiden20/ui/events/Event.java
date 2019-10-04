@@ -31,13 +31,13 @@ public class Event {
     static final String KOL_START           = "Time_Start";
     static final String KOL_END             = "Time_End";
     static final String KOL_TEXT            = "Event_text";
-    static final String KOL_SEC_GOT         = "event_sec_got";
+    static final String KOL_SEC_GOT         = "Event_sec_got";
     static final String KOL_SEC             = "Event_sec";
-    static final String KOL_BAR_GOT         = "event_bar_got";
+    static final String KOL_BAR_GOT         = "Event_bar_got";
     static final String KOL_BAR             = "Event_bar";
-    static final String KOL_CRW_GOT         = "event_crew_got";
+    static final String KOL_CRW_GOT         = "Event_crew_got";
     static final String KOL_CRW             = "Event_crew";
-    static final String KOL_TCH_GOT         = "event_tech_got";
+    static final String KOL_TCH_GOT         = "Event_tech_got";
     static final String KOL_TCH             = "Event_tech";
 
 
@@ -90,7 +90,7 @@ public class Event {
 
         for(int i=0; i< jsonEventTabell.length(); i++) {
             JSONObject jsonEvent = (JSONObject) jsonEventTabell.get(i);
-            System.out.println(jsonEventTabell.get(i));
+
             Event detteEventet = new Event(jsonEvent);
             eventListe.add(detteEventet);
 
@@ -145,32 +145,16 @@ public class Event {
         return evtSecGot;
     }
 
-    public void setEvtSecGot(String evtSecGot) {
-        this.evtSecGot = evtSecGot;
-    }
-
     public String getEvtBarGot() {
         return evtBarGot;
-    }
-
-    public void setEvtBarGot(String evtBarGot) {
-        this.evtBarGot = evtBarGot;
     }
 
     public String getEvtCrwGot() {
         return evtCrwGot;
     }
 
-    public void setEvtCrwGot(String evtCrwGot) {
-        this.evtCrwGot = evtCrwGot;
-    }
-
     public String getEvtTchGot() {
         return evtTchGot;
-    }
-
-    public void setEvtTchGot(String evtTchGot) {
-        this.evtTchGot = evtTchGot;
     }
 
     public String getEvtId() {
@@ -213,23 +197,4 @@ public class Event {
         return evtTch;
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "evtId='" + evtId + '\'' +
-                ", evtName='" + evtName + '\'' +
-                ", evtDate='" + evtDate + '\'' +
-                ", evtStart='" + evtStart + '\'' +
-                ", evtEnd='" + evtEnd + '\'' +
-                ", evtTxt='" + evtTxt + '\'' +
-                ", evtSecGot='" + evtSecGot + '\'' +
-                ", evtSec='" + evtSec + '\'' +
-                ", evtBarGot='" + evtBarGot + '\'' +
-                ", evtBar='" + evtBar + '\'' +
-                ", evtCrwGot='" + evtCrwGot + '\'' +
-                ", evtCrw='" + evtCrw + '\'' +
-                ", evtTchGot='" + evtTchGot + '\'' +
-                ", evtTch='" + evtTch + '\'' +
-                '}';
-    }
 }

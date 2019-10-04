@@ -26,7 +26,9 @@ import com.example.kroasiden20.EventActivity;
 import com.example.kroasiden20.R;
 import com.example.kroasiden20.VolleyAdapter;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -36,11 +38,14 @@ public class EventsFragment extends Fragment implements Response.Listener<String
     public final static String EVENT_INTENT_ID =
             "com.example.kroasiden20.ui.events.EventsFragment.VIS_EVENT";
     public final static int REQUEST_CODE_VIS_VARE = 0;
-    public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
+    public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php/";
+
 
     private VolleyAdapter restDbAdapter;
     private RecyclerView evtRecyclerView;
     private ArrayList<Event> evtArrayList = new ArrayList<Event>();
+    private ArrayList<JSONArray> volArrayList = new ArrayList<>();
+    private String count;
     private EventAdapter evtAdapter;
 
     private EventsViewModel eventsViewModel;
@@ -63,6 +68,7 @@ public class EventsFragment extends Fragment implements Response.Listener<String
         evtRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         // Initialize the ArrayList that will contain the data.
         evtArrayList = new ArrayList<>();
+        volArrayList = new ArrayList<>();
         // Initialize the adapter and set it to the RecyclerView.
         evtAdapter = new EventAdapter(this.getActivity(), evtArrayList);
         evtRecyclerView.setAdapter(evtAdapter);
@@ -74,31 +80,44 @@ public class EventsFragment extends Fragment implements Response.Listener<String
     }
 
     public void lesAlleEventer() {
-        String eventliste_URL = ENDPOINT + "/event?order=Date,asc&transform=1";
+        String eventliste_URL = ENDPOINT + "event?transform=1";
         Toast.makeText(this.getActivity(), eventliste_URL, Toast.LENGTH_LONG).show();
         System.out.println(eventliste_URL);
         if(isOnline()) {
-            System.out.println("JEG ER ONLINE FOR FOAEN !!!");
             RequestQueue queue = Volley.newRequestQueue(this.getActivity());
             StringRequest stringRequest =
                     new StringRequest(Request.Method.GET, eventliste_URL, this, this);
             queue.add(stringRequest);
-            System.out.println(stringRequest);
+
         } else {
             Toast.makeText(this.getActivity(), "Ingen nettverkstilgang. Kan ikke laste varer.", Toast.LENGTH_SHORT).show();
         }
     }
 
+
+
+
+
     @Override
     public void onResponse(String response) {
-        try {
-            evtArrayList = Event.lagEventListe(response);
-            oppdaterEventListView(evtArrayList);
-        }
-        catch (JSONException e) {
-            Toast.makeText(this.getActivity(), "Ugyldige JSON-data.", Toast.LENGTH_LONG).show();
-        }
+
+
+            try {
+                evtArrayList = Event.lagEventListe(response);
+
+
+                oppdaterEventListView(evtArrayList);
+
+            } catch (JSONException e) {
+                Toast.makeText(this.getActivity(), "Ugyldige JSON-data.", Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+
     }
+
+
+
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -118,12 +137,7 @@ public class EventsFragment extends Fragment implements Response.Listener<String
         return (networkInfo != null && networkInfo.isConnected());
     }
 
-    public void visEvent(String eventID) {
-        Intent startIntent = new Intent(this.getActivity(), EventActivity.class);
-        startIntent.putExtra(EventsFragment.EVENT_INTENT_ID, eventID);
-        startActivityForResult(startIntent, EventsFragment.REQUEST_CODE_VIS_VARE);
 
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data ) {

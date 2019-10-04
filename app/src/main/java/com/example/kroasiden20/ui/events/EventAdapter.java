@@ -118,6 +118,9 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
             detailIntent.putExtra("crwGot", currentEvent.getEvtCrwGot());
             detailIntent.putExtra("tchGot", currentEvent.getEvtTchGot());
 
+            System.out.println(currentEvent.getEvtBarGot());
+            System.out.println(currentEvent.getEvtSecGot());
+
             detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(detailIntent);
         } // End of onClick()
