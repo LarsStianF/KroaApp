@@ -36,7 +36,7 @@ public class EventsFragment extends Fragment implements Response.Listener<String
     public final static String EVENT_INTENT_ID =
             "com.example.kroasiden20.ui.events.EventsFragment.VIS_EVENT";
     public final static int REQUEST_CODE_VIS_VARE = 0;
-    public final static String ENDPOINT = "https://itfag.usn.no/~216714/api.php";
+    public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
 
     private VolleyAdapter restDbAdapter;
     private RecyclerView evtRecyclerView;
