@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
             android:padding="8dp"
-            android:text="Kroa i Bø"
+            android:text=""
             android:textColor="@color/colorPrimary"
             android:textSize="40sp" />
 
@@ -42,7 +42,7 @@
             android:gravity="center"
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
-            android:text="20.09.2019"
+            android:text=""
             android:textColor="@color/colorPrimary" />
 
         <LinearLayout
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
-                android:text="23:00 -"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
-                android:text=" 01:00"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
@@ -85,7 +85,7 @@
             android:paddingTop="8dp"
             android:paddingEnd="30dp"
             android:paddingBottom="10dp"
-            android:text="Hei vi kjører fort, veldig fort"
+            android:text=""
             android:textColor="@color/colorPrimary" />
 
         <LinearLayout
@@ -99,6 +99,7 @@
 
             <ImageView
                 android:id="@+id/man_black"
+                android:contentDescription="@string/man_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -108,6 +109,7 @@
 
             <ImageView
                 android:id="@+id/man_red"
+                android:contentDescription="@string/man_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -118,6 +120,7 @@
 
             <ImageView
                 android:id="@+id/man_blue"
+                android:contentDescription="@string/man_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -127,6 +130,7 @@
 
             <ImageView
                 android:id="@+id/man_yellow"
+                android:contentDescription="@string/man_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -150,7 +154,7 @@
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="2"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -160,7 +164,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
-                android:text="12"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -170,7 +174,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="3"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -180,7 +184,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="10"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -190,7 +194,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="0"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -200,7 +204,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="11"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -210,7 +214,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="6"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -220,7 +224,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
-                android:text="12"
+                android:text=""
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
 

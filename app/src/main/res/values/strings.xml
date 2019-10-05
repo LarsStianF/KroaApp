@@ -136,5 +136,9 @@
     <string name="bar_label">Bar</string>
     <string name="technical_label">Technical</string>
     <string name="crew_label">Crew</string>
+    <string name="man_black">man_black</string>
+    <string name="man_red">man_red</string>
+    <string name="man_blue">man_blue</string>
+    <string name="man_yellow">man_yellow</string>
 
 </resources>

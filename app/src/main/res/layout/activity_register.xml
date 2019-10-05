@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/fname_field_text"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/textColorPrimary" />
 
     <EditText
         android:id="@+id/fname_field"
@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
+        android:textColor="@color/colorPrimary"
         android:background="@drawable/rounded_corner"
         android:ems="11"
         android:inputType="textPersonName"
@@ -44,7 +45,7 @@
         android:layout_gravity="center"
         android:text="@string/lname_field_text"
         android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/textColorPrimary" />
 
     <EditText
         android:id="@+id/lname_field"
@@ -53,6 +54,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
         android:background="@drawable/rounded_corner"
+        android:textColor="@color/colorPrimary"
         android:ems="11"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
@@ -65,13 +67,14 @@
         android:layout_gravity="center"
         android:text="@string/email_field_text"
         android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/textColorPrimary" />
     <EditText
         android:id="@+id/email_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
+        android:textColor="@color/colorPrimary"
         android:background="@drawable/rounded_corner"
         android:ems="11"
         android:inputType="textEmailAddress"
@@ -85,7 +88,7 @@
         android:layout_gravity="center"
         android:text="@string/password_field_text"
         android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/textColorPrimary" />
 
     <EditText
         android:id="@+id/password_field"
@@ -94,6 +97,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
         android:background="@drawable/rounded_corner"
+        android:textColor="@color/colorPrimary"
         android:ems="11"
         android:inputType="textPassword"
         android:paddingStart="10dp"
@@ -105,7 +109,7 @@
         android:layout_gravity="center"
         android:text="Phone:"
         android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/textColorPrimary" />
 
     <EditText
         android:id="@+id/phone_field"
@@ -113,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
+        android:textColor="@color/colorPrimary"
         android:background="@drawable/rounded_corner"
         android:ems="11"
         android:inputType="phone"
@@ -123,6 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:onClick="confirmInput"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_corner"
         android:text="@string/register_btn_text"

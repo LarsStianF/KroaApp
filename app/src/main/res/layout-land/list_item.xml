@@ -33,7 +33,7 @@
             android:layout_marginTop="15dp"
             android:padding="8dp"
             android:text="Kroa i Bø"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:textSize="40sp" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:gravity="center"
             android:text="20.09.2019"
             android:layout_below="@+id/evt_name"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimary" />
 
         <LinearLayout
             android:id="@+id/evt_start_end"
@@ -64,7 +64,7 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text="23:00 -"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_end"
@@ -74,7 +74,7 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text=" 01:00"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
         <TextView
             android:id="@+id/evt_text"
@@ -88,7 +88,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
             android:text="Hei vi kjører fort, veldig fort"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimary" />
 
         <LinearLayout
             android:id="@+id/men_panel"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/evt_text"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimary"
             android:gravity="center">
             <ImageView
                 android:id="@+id/man_black"
@@ -155,7 +155,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="2"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_sec_need"
@@ -165,7 +165,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:text="12"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_bar_got"
@@ -175,7 +175,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="3"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_bar_need"
@@ -185,7 +185,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="10"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_crw_got"
@@ -195,7 +195,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="11"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_crw_need"
@@ -205,7 +205,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="11"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_tch_got"
@@ -215,7 +215,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="6"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/evt_tch_need"
@@ -225,7 +225,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:text="12"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
     </RelativeLayout>
