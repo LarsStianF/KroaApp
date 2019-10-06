@@ -23,7 +23,7 @@ public class Stats {
     static final String KOL_DATE            = "Date";
 
     static final String TABELL_NAVN3        = "event_volunteer";
-    static final String KOL_EV_VOL_ID       = "/event_volunteer?filter=vol_id,eq,5&columns=vol_ID&transform=1";
+    static final String KOL_EV_VOL_ID       = "month";
 
     static final String KOL_EV_VOL_ID_TOTAL = "total";
     static final String KOL_JIPPI           = "Jippi";

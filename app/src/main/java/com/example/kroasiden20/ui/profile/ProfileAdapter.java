@@ -31,7 +31,7 @@ class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder>  {
     @NonNull
     @Override
     public ProfileAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View sItemView = statsInflate.inflate(R.layout.fragment_profile, parent, false);
+        View sItemView = statsInflate.inflate(R.layout.activity_profile, parent, false);
         return new ViewHolder(sItemView, this);
     }
 
@@ -39,7 +39,7 @@ class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder>  {
     @Override
     public void onBindViewHolder(@NonNull ProfileAdapter.ViewHolder holder, int position) {
         Stats stats = profile_Stats.get(position);
-        ViewHolder vh = (ViewHolder) holder;
+        ViewHolder vh = holder;
         vh.unitStatsView.setText(stats.unit);
         vh.welcomeNameView.setText(stats.name);
         vh.monthStatsView.setText(stats.worked);

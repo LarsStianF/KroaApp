@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment implements Response.Listener<Strin
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        View root = inflater.inflate(R.layout.activity_profile, container, false);
 
         p_units = root.findViewById(R.id.unitStats);
         p_Welcome_Toast = root.findViewById(R.id.welcomeName);
