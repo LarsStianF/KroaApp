@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:layout_marginStart="30dp"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/imageLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/kroaLogo"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/kroa_logo" />
+
+        <ImageView
+            android:id="@+id/unitLogo"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/enhet" />
+
+        <ImageView
+            android:id="@+id/monthLogo"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/month" />
+
+        <ImageView
+            android:id="@+id/totalLogo"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/total" />
+
+        <ImageView
+            android:id="@+id/jippiLogo"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/jippi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/imageLayout">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/welcomeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/unitLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeLayout"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/imageLayout">
+
+        <TextView
+            android:id="@+id/unitText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Units: "
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/unitStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:textSize="24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/monthLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/unitLayout"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/imageLayout">
+
+        <TextView
+            android:id="@+id/monthText"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Worked this month: "
+            android:lines="2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/monthStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textSize="24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/totalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/monthLayout"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/imageLayout">
+
+        <TextView
+            android:id="@+id/totalText"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Worked total: "
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/totalStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textSize="24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/jippiLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/totalLayout"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/imageLayout">
+
+        <TextView
+            android:id="@+id/jippiText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jippi until: "
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/jippiStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+</RelativeLayout>
