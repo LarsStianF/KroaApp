@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kroasiden20.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 /**
