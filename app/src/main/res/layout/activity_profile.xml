@@ -47,7 +47,7 @@
             app:srcCompat="@drawable/jippi" />
     </LinearLayout>
 
-    <LinearLayout
+    <LinearLayout 
         android:id="@+id/welcomeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

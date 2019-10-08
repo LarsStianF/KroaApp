@@ -1,6 +1,7 @@
 package com.example.kroasiden20.ui.profile;
 
 import android.app.Activity;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -8,32 +9,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
-import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.android.volley.*;
 import com.android.volley.toolbox.*;
 import com.example.kroasiden20.R;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 /**
  * @author Lars Stian
  */
 
+
 public class ProfileFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
+
 
     private ProfileViewModel profileViewModel;
     private TextView p_Welcome_Toast, p_units, p_Times_Worked, p_Monthly_Worked, p_Jippi;
