@@ -64,7 +64,7 @@ public class Event {
     }
 
     // Empty Constructor
-    Event() {}
+    public Event() {}
 
     public Event(JSONObject jsonEvent) {
         this.evtId          = jsonEvent.optString(KOL_ID);
@@ -103,7 +103,7 @@ public class Event {
 
 
 
-    JSONObject toJSONObject() {
+    public JSONObject toJSONObject() {
         JSONObject jsonEvent = new JSONObject();
         try {
             jsonEvent.put(KOL_ID, this.evtId);
@@ -200,4 +200,59 @@ public class Event {
         return evtTch;
     }
 
+    public void setEvtId(String evtId) {
+        this.evtId = evtId;
+    }
+
+    public void setEvtName(String evtName) {
+        this.evtName = evtName;
+    }
+
+    public void setEvtDate(String evtDate) {
+        this.evtDate = evtDate;
+    }
+
+    public void setEvtStart(String evtStart) {
+        this.evtStart = evtStart;
+    }
+
+    public void setEvtEnd(String evtEnd) {
+        this.evtEnd = evtEnd;
+    }
+
+    public void setEvtTxt(String evtTxt) {
+        this.evtTxt = evtTxt;
+    }
+
+    public void setEvtSecGot(String evtSecGot) {
+        this.evtSecGot = evtSecGot;
+    }
+
+    public void setEvtSec(String evtSec) {
+        this.evtSec = evtSec;
+    }
+
+    public void setEvtBarGot(String evtBarGot) {
+        this.evtBarGot = evtBarGot;
+    }
+
+    public void setEvtBar(String evtBar) {
+        this.evtBar = evtBar;
+    }
+
+    public void setEvtCrwGot(String evtCrwGot) {
+        this.evtCrwGot = evtCrwGot;
+    }
+
+    public void setEvtCrw(String evtCrw) {
+        this.evtCrw = evtCrw;
+    }
+
+    public void setEvtTchGot(String evtTchGot) {
+        this.evtTchGot = evtTchGot;
+    }
+
+    public void setEvtTch(String evtTch) {
+        this.evtTch = evtTch;
+    }
 }

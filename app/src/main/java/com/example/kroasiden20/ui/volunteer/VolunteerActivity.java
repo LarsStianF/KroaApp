@@ -29,18 +29,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
     public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
     Boolean updateOK = false;
     Spinner volRole;
-    String volIDDelete;
-    String postmanTest = "{\n" +
-            "\n" +
-            "\"Firstname\": \"Postman\",\n" +
-            "\"Lastname\": \"Test\",\n" +
-            "\"nr\": \"66664444\",\n" +
-            "\"Email\": \"postman@test.no\",\n" +
-            "\"Password\": \"postman123\",\n" +
-            "\"Unit\": 0,\n" +
-            "\"user_type\": 6\n" +
-            "\n" +
-            "}";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +46,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
         Button btnUpdVol = findViewById(R.id.btnUpdVol);
 
         volName.setText(getIntent().getStringExtra("Name"));
-        //Spinner "User Role" dropdown menu for changing of volunteer roles.
+        //Spinner "User Role" dropdown menu for changing of volunteer roles. Should values should be gotten from database. But as JOIN in API is buggy, this is a quick fix
         String[] roles = new String[]{"Root", "Daglig Leder", "Volunteer Coordinator", "Event Manager", "Manager", "Volunteer"};
         ArrayAdapter<String> volRoleAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, roles);
         volRole.setAdapter(volRoleAdapter);
@@ -79,7 +68,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
             @Override
             public void onClick(View v) {
                deleteVol(getIntent().getStringExtra("ID"));
-                finish();
+               finish();
 
             }
 
@@ -103,25 +92,6 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
         int thisRole = volRole.getSelectedItemPosition()+1;
         curVol.role = String.valueOf(thisRole);
 
-
-        /*
-        String thisRole = volRole.getSelectedItem().toString();
-        Toast.makeText(this, "Current selected role: " + thisRole , Toast.LENGTH_LONG).show();
-        if (thisRole.equals("Root")){
-            curVol.role = "1";
-        } else if (thisRole.equals("Daglig Leder")){
-            curVol.role = "2";
-        } else if (thisRole.equals("Volunteer Coordinator")) {
-            curVol.role = "3";
-        } else if (thisRole.equals("Event Manager")) {
-            curVol.role = "4";
-        }  else if (thisRole.equals("Manager")) {
-            curVol.role = "5";
-        } else {
-            curVol.role = "6";
-        }
-*/
-        //
     }
 
 
