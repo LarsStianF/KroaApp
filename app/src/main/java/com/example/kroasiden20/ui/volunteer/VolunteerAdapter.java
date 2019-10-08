@@ -80,7 +80,8 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         }
 
         // Populate the textviews with data.
-        vh.vName.setText(currentVol.getName());
+        String name = currentVol.getfName() + " " + currentVol.getlName();
+        vh.vName.setText(name);
         // Because joins suck, #quickfix, is in database.
         Log.d("STATE",currentVol.getRole());
         if (currentVol.getRole().equals("1")){
@@ -155,9 +156,10 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         public void onClick(View view) {
 
             Volunteer curVol = vVolunteerData.get(getAdapterPosition());
+            String name = curVol.getfName() + " " + curVol.getlName();
             Intent detailIntent = new Intent(parent, VolunteerActivity.class);
             detailIntent.putExtra("ID", curVol.getID());
-            detailIntent.putExtra("Name", curVol.getName());
+            detailIntent.putExtra("Name", name);
             detailIntent.putExtra("Role", curVol.getRole());
 
         /*    if ( curVol.getRole().equals("1")){

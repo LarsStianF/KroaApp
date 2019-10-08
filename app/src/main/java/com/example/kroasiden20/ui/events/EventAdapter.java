@@ -10,11 +10,12 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.kroasiden20.EventActivity;
-
 import com.example.kroasiden20.R;
 import java.util.ArrayList;
 
-
+/**
+ * @author Kim V Pedersen
+ */
 class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
 
     private ArrayList<Event> eventListen;
@@ -117,10 +118,8 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
             detailIntent.putExtra("barGot", currentEvent.getEvtBarGot());
             detailIntent.putExtra("crwGot", currentEvent.getEvtCrwGot());
             detailIntent.putExtra("tchGot", currentEvent.getEvtTchGot());
-
             System.out.println(currentEvent.getEvtBarGot());
             System.out.println(currentEvent.getEvtSecGot());
-
             detailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             ctx.startActivity(detailIntent);
         } // End of onClick()

@@ -6,6 +6,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
+/**
+ * @author Kim V Pedersen
+ */
 public class Event {
 
     // Member variables representing the title and information about the sport.

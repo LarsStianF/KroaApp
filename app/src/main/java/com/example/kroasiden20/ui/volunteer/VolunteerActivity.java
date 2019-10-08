@@ -3,7 +3,6 @@ package com.example.kroasiden20.ui.volunteer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,9 +20,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kroasiden20.R;
-import com.example.kroasiden20.VolleyAdapter;
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class VolunteerActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
@@ -106,7 +101,8 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
     private void updateVolunteerRole() {
         int thisRole = volRole.getSelectedItemPosition()+1;
-        curVol.role= String.valueOf(thisRole);
+        curVol.role = String.valueOf(thisRole);
+
 
         /*
         String thisRole = volRole.getSelectedItem().toString();
