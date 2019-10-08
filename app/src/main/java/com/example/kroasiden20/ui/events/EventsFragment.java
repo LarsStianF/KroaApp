@@ -79,8 +79,6 @@ public class EventsFragment extends Fragment implements Response.Listener<String
 
     public void lesAlleEventer() {
         String eventliste_URL = ENDPOINT + "event?transform=1";
-        Toast.makeText(this.getActivity(), eventliste_URL, Toast.LENGTH_LONG).show();
-        System.out.println(eventliste_URL);
         if(isOnline()) {
             RequestQueue queue = Volley.newRequestQueue(this.getActivity());
             StringRequest stringRequest =
