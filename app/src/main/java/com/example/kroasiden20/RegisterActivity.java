@@ -1,6 +1,7 @@
 package com.example.kroasiden20;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -200,6 +201,9 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
             queue.add(jsonObjRequest);
             System.out.println(jsonObjRequest);
             Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show();
+            Intent result = new Intent();
+            setResult(Activity.RESULT_OK, result);
+            finish();
 
         } else {
             Toast.makeText(this, "ERROR: NO CONNECTION. STATUS: INOPERATIVE", Toast.LENGTH_SHORT).show();
