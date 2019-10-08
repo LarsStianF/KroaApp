@@ -19,7 +19,6 @@ package com.example.kroasiden20.ui.volunteer;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +27,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
-import com.example.kroasiden20.ui.volunteer.VolunteerActivity;
 import com.example.kroasiden20.R;
 
 import java.util.ArrayList;
@@ -73,6 +70,7 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         Volunteer currentVol = vVolunteerData.get(position);
         ViewHolder vh = holder;
 
+        // Alternates the color of the Volunteer cards
         if (position %2 == 1) {
             holder.itemView.setBackgroundColor(Color.parseColor("#80CECECE"));
         } else {
@@ -82,8 +80,7 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
         // Populate the textviews with data.
         String name = currentVol.getfName() + " " + currentVol.getlName();
         vh.vName.setText(name);
-        // Because joins suck, #quickfix, is in database.
-        Log.d("STATE",currentVol.getRole());
+        // Because Joins does not work in the CRUD API, this is a quickfix
         if (currentVol.getRole().equals("1")){
             vh.vRole.setText("Root");
 
@@ -161,29 +158,6 @@ class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.ViewHolder>
             detailIntent.putExtra("ID", curVol.getID());
             detailIntent.putExtra("Name", name);
             detailIntent.putExtra("Role", curVol.getRole());
-
-        /*    if ( curVol.getRole().equals("1")){
-                detailIntent.putExtra("Role", "Root");
-
-            } else if ( curVol.getRole().equals("2") ) {
-                detailIntent.putExtra("Role", "Daglig Leder");
-
-            } else if ( curVol.getRole().equals("3")) {
-                detailIntent.putExtra("Role", "Volunteer Coordinatorr");
-
-            } else if ( curVol.getRole().equals("4")) {
-                detailIntent.putExtra("Role", "Event Manager");
-
-            } else if ( curVol.getRole().equals("5")) {
-                detailIntent.putExtra("Role", "Manager");
-
-            } else if ( curVol.getRole().equals("6")) {
-                detailIntent.putExtra("Role", "Volunteer");
-
-            } else {
-                detailIntent.putExtra("Role", "This no Work");
-            }
-*/
             detailIntent.putExtra("Email", curVol.getEmail());
             detailIntent.putExtra("Phone", curVol.getPhone());
             detailIntent.putExtra("LastVol", curVol.getLastVol());

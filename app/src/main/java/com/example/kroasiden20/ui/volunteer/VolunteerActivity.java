@@ -1,3 +1,7 @@
+/**
+ ** This activity governs the page which shows up when clicking on a Volunteer card in the volunteer list
+ */
+
 package com.example.kroasiden20.ui.volunteer;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +28,7 @@ import org.json.JSONObject;
 
 public class VolunteerActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
 
+    // Initializes Volunteer object.
     private Volunteer curVol = new Volunteer();
 
     public final static String ENDPOINT = "https://itfag.usn.no/~163357/api.php";
@@ -35,8 +40,6 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer);
-
-
         TextView volName = findViewById(R.id.volunteerName);
         volRole = findViewById(R.id.userRole);
         TextView volEmail = findViewById(R.id.volunteerEmail);
@@ -45,25 +48,23 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
         Button btnDelVol = findViewById(R.id.btnDelVol);
         Button btnUpdVol = findViewById(R.id.btnUpdVol);
 
-        volName.setText(getIntent().getStringExtra("Name"));
-        //Spinner "User Role" dropdown menu for changing of volunteer roles. Should values should be gotten from database. But as JOIN in API is buggy, this is a quick fix
+
+        //Spinner "User Role" dropdown menu for changing of volunteer roles. Values should be gotten from database. But as JOIN in API is buggy, this is a quick fix
         String[] roles = new String[]{"Root", "Daglig Leder", "Volunteer Coordinator", "Event Manager", "Manager", "Volunteer"};
         ArrayAdapter<String> volRoleAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, roles);
         volRole.setAdapter(volRoleAdapter);
         String curRole = getIntent().getStringExtra("Role");
-        System.out.println("Current Role: " + curRole);
-
         int spinnerPosition = Integer.parseInt(curRole)-1;
-        System.out.println("Spinner Position: " + spinnerPosition);
-
         volRole.setSelection(spinnerPosition);
 
+        // Sets volunteer info
+        volName.setText(getIntent().getStringExtra("Name"));
         volEmail.setText(getIntent().getStringExtra("Email"));
         volPhone.setText(getIntent().getStringExtra("Phone"));
         volLastVol.setText(getIntent().getStringExtra("LastVol"));
 
 
-
+        // Button for deleting volunteer, sends you back to previous screen on complete, method in VolunteerFragment refreshes data.
         btnDelVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,13 +75,13 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
         });
 
+        // Button for updating volunteer
         btnUpdVol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String volID = getIntent().getStringExtra("ID");
                 updateVolunteerRole();
                 updateVol(volID, curVol);
-                //finish();
             }
 
         });
@@ -88,6 +89,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
     }
 
+    // Updates the role of Volunteer object
     private void updateVolunteerRole() {
         int thisRole = volRole.getSelectedItemPosition()+1;
         curVol.role = String.valueOf(thisRole);
@@ -95,6 +97,7 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
     }
 
 
+    // Does nothing for now
     @Override
     public void onResponse(String response) {
 
@@ -108,16 +111,16 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
     }
 
 
+    // Method for deleting volunteer
     private void deleteVol( String volID) {
 
         String volunteerDelete_URL = ENDPOINT + "/volunteer/";
         if(isOnline()) {
-            System.out.println("STATUS: OPERATIONAL");
             RequestQueue queue = Volley.newRequestQueue(this);
+
             StringRequest stringRequest =
                     new StringRequest(Request.Method.DELETE, volunteerDelete_URL + volID, this, this);
             queue.add(stringRequest);
-            System.out.println(stringRequest);
             Toast.makeText(this, "User Deleted successfully", Toast.LENGTH_SHORT).show();
 
         } else {
@@ -126,11 +129,11 @@ public class VolunteerActivity extends AppCompatActivity implements Response.Lis
 
     }
 
+    // Method for updating volunteer role
     private void updateVol(String volID, Volunteer curVol) {
         String volunteerUpdateURL = ENDPOINT + "/volunteer/" + volID;
         JSONObject jsonVolunteer = curVol.toJSONObject();
         if(isOnline()) {
-            System.out.println("STATUS: OPERATIONAL");
             RequestQueue queue = Volley.newRequestQueue(this);
 
             JsonObjectRequest jsonObjRequest = new JsonObjectRequest(Request.Method.PUT, volunteerUpdateURL, jsonVolunteer, new Response.Listener<JSONObject>() {

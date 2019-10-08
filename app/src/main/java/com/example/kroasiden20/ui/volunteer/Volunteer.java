@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class Volunteer {
 
-    // Member variables representing the title and information about the sport.
     String id;
     String fName;
     String lName;

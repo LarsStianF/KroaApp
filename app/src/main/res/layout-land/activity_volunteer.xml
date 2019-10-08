@@ -37,9 +37,7 @@
         android:layout_below="@id/userRole"
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
+        android:layout_height="wrap_content">
 
 
         <LinearLayout
@@ -56,10 +54,10 @@
             android:src="@drawable/man_blue" />
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Crew"/>
+
         </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
