@@ -89,7 +89,6 @@ public class Event {
         ArrayList<Event> eventListe = new ArrayList<Event>();
         JSONObject jsonData = new JSONObject(jsonEventString);
         JSONArray jsonEventTabell = jsonData.optJSONArray(TABELL_NAVN);
-        System.out.println(jsonEventString);
 
         for(int i=0; i< jsonEventTabell.length(); i++) {
             JSONObject jsonEvent = (JSONObject) jsonEventTabell.get(i);
@@ -199,5 +198,7 @@ public class Event {
     public String getEvtTch() {
         return evtTch;
     }
+
+
 
 }

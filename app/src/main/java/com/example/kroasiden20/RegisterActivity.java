@@ -104,12 +104,8 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
 
     boolean validateEmail() {
-        RequestQueue queue = Volley.newRequestQueue(this);
+
         emailInput = textInputEmail.getText().toString();
-
-        String checkEmailURL = ENDPOINT + "/volunteer?filter=Email,eq," + emailInput;
-
-
 
         if (emailInput.isEmpty()) {
             textInputEmail.setError("Field can't be empty");
@@ -211,7 +207,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
     }
 
-    private String passwordHash(String password) {
+    public static String passwordHash(String password) {
         /**
          * Bruker simpel MD5 kryptering (ikke sikker)
          * Matches poor database.
