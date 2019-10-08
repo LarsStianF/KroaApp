@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:padding="5dp"
-                    android:text="@string/welcome_username"
+                    android:text=""
                     android:textColor="@android:color/white"
                     android:textSize="24sp" />
 
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="35dp"
-                    android:text="@string/p_last_volunteered"
+                    android:text=""
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
@@ -210,7 +210,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/black"
-                        android:text="@string/Confirmed_work"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         android:textSize="24sp" />
@@ -224,7 +224,7 @@
                             android:id="@+id/confirmed_event_1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/working_event1"
+                            android:text=""
                             android:textSize="24sp" />
 
                         <TextView
@@ -240,7 +240,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="300dp"
                             android:layout_marginLeft="300dp"
-                            android:text="@string/crew_type_bar"
+                            android:text=""
                             android:textSize="30sp" />
                     </androidx.cardview.widget.CardView>
 
@@ -253,7 +253,7 @@
                             android:id="@+id/confirmed_event_2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/working_event2"
+                            android:text=""
                             android:textSize="24sp" />
 
                         <TextView
@@ -269,7 +269,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="300dp"
                             android:layout_marginLeft="300dp"
-                            android:text="@string/crew_type_crew"
+                            android:text=""
                             android:textSize="30sp" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -305,7 +305,7 @@
                             android:id="@+id/pending_event_1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/pending_event1"
+                            android:text=""
                             android:textSize="24sp" />
 
                         <TextView
@@ -321,7 +321,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="300dp"
                             android:layout_marginLeft="300dp"
-                            android:text="@string/crew_type_security"
+                            android:text=""
                             android:textSize="30sp" />
                     </androidx.cardview.widget.CardView>
 
@@ -334,7 +334,7 @@
                             android:id="@+id/pending_event_2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/pending_event2"
+                            android:text=""
                             android:textSize="24sp" />
 
                         <TextView
@@ -350,7 +350,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="300dp"
                             android:layout_marginLeft="300dp"
-                            android:text="@string/crew_type_crew"
+                            android:text=""
                             android:textSize="30sp" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
