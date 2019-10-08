@@ -15,6 +15,10 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+/**
+ * @author Lars Stian
+ */
+
 class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder>  {
     private ArrayList<Stats> profile_Stats;
     private LayoutInflater statsInflate;

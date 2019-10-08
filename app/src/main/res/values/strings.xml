@@ -117,16 +117,7 @@
     </string-array>
 
 
-    <string name="welcome_username">Welcome, </string>
-    <string name="p_last_volunteered">Last volunteered: </string>
-    <string name="Confirmed_work">Your confirmed work days</string>
-    <string name="working_event1">Oktoberfest</string>
-    <string name="crew_type_bar">BAR</string>
-    <string name="crew_type_crew">CREW</string>
-    <string name="working_event2">Halloween</string>
-    <string name="crew_type_security">Security</string>
-    <string name="pending_event1">Postgirobygget</string>
-    <string name="pending_event2">A-arrangement</string>
+    
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

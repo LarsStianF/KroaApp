@@ -145,4 +145,11 @@ public class EventsFragment extends Fragment implements Response.Listener<String
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        lesAlleEventer();
+
+    }
 }

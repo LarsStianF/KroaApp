@@ -105,6 +105,7 @@ class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder>  {
 
             Event currentEvent = eventListen.get(getAdapterPosition());
             Intent detailIntent = new Intent(parent, EventActivity.class);
+            detailIntent.putExtra("ID", currentEvent.getEvtId());
             detailIntent.putExtra("Name", currentEvent.getEvtName());
             detailIntent.putExtra("Date", currentEvent.getEvtDate());
             detailIntent.putExtra("Start", currentEvent.getEvtStart());

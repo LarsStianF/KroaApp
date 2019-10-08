@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/nameDetail"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
@@ -29,9 +29,12 @@
             android:padding="8dp"
             android:text=""
             android:textColor="@color/colorPrimary"
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="false"
             android:textSize="40sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/dateDetail"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
@@ -40,6 +43,10 @@
             android:paddingBottom="10dp"
             android:gravity="center"
             android:text=""
+            android:inputType="none"
+            android:editable="false"
+            android:focusable="false"
+            android:clickable="false"
             android:layout_below="@+id/nameDetail"
             android:textColor="@color/colorPrimary" />
 
@@ -51,7 +58,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/startDetail"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
@@ -59,6 +66,10 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text=""
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -67,7 +78,7 @@
                 android:text=" - "
                 android:textColor="@color/colorPrimary"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/endDetail"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
@@ -75,9 +86,13 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="10dp"
                 android:text=""
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
-        <TextView
+        <EditText
             android:id="@+id/textDetail"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
@@ -89,7 +104,25 @@
             android:paddingTop="8dp"
             android:paddingBottom="10dp"
             android:text=""
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="false"
             android:textColor="@color/colorPrimary" />
+    <Button
+        android:id="@+id/btnDelEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE EVENT"
+        android:layout_below="@id/textDetail"
+        />
+
+    <Button
+        android:id="@+id/btnUpdEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Event"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/textDetail"/>
 
     <LinearLayout
         android:id="@+id/men_panel_detail"
