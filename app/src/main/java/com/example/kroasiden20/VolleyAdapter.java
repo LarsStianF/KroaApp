@@ -13,6 +13,12 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+/**
+ * @author Lars Stian
+ */
+
+// Kode er hentet av Jon's forelesningsmateriale
+
 public class VolleyAdapter {
     static final String endpoint = "https://itfag.usn.no/~216714/api.php";
 

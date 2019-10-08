@@ -29,6 +29,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * @author Lars Stian
+ */
 
 public class ProfileFragment extends Fragment implements Response.Listener<String>, Response.ErrorListener {
 

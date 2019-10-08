@@ -1,12 +1,16 @@
 package com.example.kroasiden20.ui.profile;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+/**
+ * @author Lars Stian
+ */
+
+// Kode ble tullete siden jeg hang meg for mye opp i JOIN's og hvordan jeg skulle gjøre det
 
 public class Stats {
     String name;
