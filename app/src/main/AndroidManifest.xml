@@ -17,6 +17,7 @@
         <activity
             android:name=".EventActivity"
             android:label="Event info"
+            android:theme="@style/AppTheme"
             >
 
         </activity>
@@ -25,7 +26,7 @@
             />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +37,7 @@
             android:name=".RegisterActivity"
             android:label="Register"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kroasiden20.MainActivity" />
