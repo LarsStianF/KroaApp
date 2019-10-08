@@ -10,7 +10,7 @@ public class EventlogsViewModel extends ViewModel {
 
     public EventlogsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is event logs placeholder fragment");
     }
 
     public LiveData<String> getText() {
